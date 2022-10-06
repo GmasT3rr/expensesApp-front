@@ -1,0 +1,17 @@
+<div class="row d-flex justify-content-around mt-5 mb-5">
+    <div class="text-center" style="font-weight: bold;">
+        <h1>¡Aqui podra ver todos sus gastos!</h1>
+        <h3>Gastos:</h3>
+    </div>
+    <div routerLink="/home" class="col-3 text-center btn btn-primary mt-5">
+        Volver a mi resumen
+    </div>
+    <div class="col-3 text-center btn btn-warning mt-5" data-bs-toggle="modal" data-bs-target="#createExpense">
+        Ingresar un nuevo gasto
+    </div>
+</div>
+
+<app-modal-new-expense></app-modal-new-expense>
+<app-modal-update-expense></app-modal-update-expense>
+<app-modal-delete-expense></app-modal-delete-expense>
+<app-table></app-table>

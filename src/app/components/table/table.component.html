@@ -1,0 +1,54 @@
+<div class="container mt-5 mb-5">
+    <div *ngIf="dataAvailable" class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Categoria
+                    </th>
+                    <th>
+                        Costo
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th colspan="2" class="text-center">
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let expense of expenses; let i=index">
+                <tr>
+                    <td>
+                        {{expense.name}}
+                    </td>
+                    <td>
+                        {{expense.category}}
+                    </td>
+                    <td>
+                        ${{expense.price}}
+                    </td>
+                    <td>
+                        {{expense.updatedAt | slice:0:10}}
+                    </td>
+                    <td class="text-center">
+                        <i (click)="getExpense(expense)"
+                        data-bs-toggle="modal" data-bs-target="#updateExpense"
+                        class="btn bi bi-pen" 
+                        style="color: blue;"></i>
+                    </td>
+                    <td class="text-center">
+                        <i (click)="getExpense(expense)"
+                        data-bs-toggle="modal" data-bs-target="#deleteExpense"
+
+                        class="btn bi bi-trash3" 
+                        style="color: red;"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
