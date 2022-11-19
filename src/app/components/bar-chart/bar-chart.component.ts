@@ -81,7 +81,7 @@ export class BarChartComponent implements OnInit {
        ]
      };
      this.barChartOptions ={
-      backgroundColor: 'rgba(28,163,129, 1)',
+      backgroundColor: 'rgba(245, 109, 145,.8)',
       responsive:true,
       scales: {
         x: {},

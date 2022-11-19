@@ -1,4 +1,4 @@
-.__bg{
+.__bg {
   background-color: white;
   justify-content: center;
   align-items: center;
@@ -6,43 +6,47 @@
   min-width: 100%;
   min-height: 100%;
 }
-.__title{
+.__title {
   color: #2748a0;
   font-weight: bold;
+}
 
+.__select_chart {
+  background-color: white;
+  color: #f9faf5;
 }
-.__select_chart{
-  color: #F9FaF5;
-}
-.__charts_title{
+
+.__charts_title {
   font-size: 1.25rem;
-  cursor: none;
   color: #2748a0;
   font-weight: bold;
-
 }
-.__pie_chart_btn, .__bar_chart_btn{
+.__pie_chart_btn,
+.__bar_chart_btn {
   background-color: #2748a0;
-  color: #F9FaF5;
+  color: #f9faf5;
 }
-@media screen and (max-width:426px) {
-  .__charts_img{
+.__pie_chart_btn:hover,
+.__bar_chart_btn:hover {
+  background-color: #2748a0;
+  color: #f9faf5;
+}
+@media screen and (max-width: 426px) {
+  .__charts_img {
     width: 75%;
-  height: 75%;
+    height: 75%;
   }
 }
-@media screen and (min-width:426px) and (max-width:769px) {
-  .__charts_img{
+@media screen and (min-width: 426px) and (max-width: 769px) {
+  .__charts_img {
     width: 60%;
-  height: 60%;
+    height: 60%;
   }
-
 }
 
-@media screen and (min-width:1440px)  {
-  .__charts_img{
+@media screen and (min-width: 1440px) {
+  .__charts_img {
     width: 25%;
-  height: 25%;
+    height: 25%;
   }
-
 }

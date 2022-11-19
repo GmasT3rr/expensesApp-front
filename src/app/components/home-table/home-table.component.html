@@ -1,0 +1,17 @@
+<div class="p-3 __bg row d-flex justify-content-around mt-5 mb-5">
+  <div  class="table-responsive col-10">
+    <h5 class="__title">Expense breakdown</h5>
+    <table class="table">
+      <tbody *ngFor="let expense of expensesInfo">
+        <tr>
+          <td>
+            {{ expense.category }}
+          </td>
+          <td class="text-center">
+            ${{ expense.price }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -12,6 +12,7 @@ import { ModalNewExpenseComponent } from './modal-new-expense/modal-new-expense.
 import { ModalUpdateExpenseComponent } from './modal-update-expense/modal-update-expense.component';
 import { ModalDeleteExpenseComponent } from './modal-delete-expense/modal-delete-expense.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { HomeTableComponent } from './home-table/home-table.component';
 
 
 
@@ -23,7 +24,8 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     ModalNewExpenseComponent,
     ModalUpdateExpenseComponent,
     ModalDeleteExpenseComponent,
-    BarChartComponent
+    BarChartComponent,
+    HomeTableComponent
   ],
   imports: [
     CommonModule,

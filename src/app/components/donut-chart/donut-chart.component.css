@@ -1,11 +1,13 @@
-.bg{
-    background-color: white;
-padding-top: 20px;
-padding-bottom: 50px;
-border-radius: 15px;
+
+.__filter{
+  background-color: #2748a0;
+color: white;
 
 }
-
+.__pie_chart_btn{
+  background-color: white;
+  margin: 0;
+}
 .doughnut-description .title{
     margin-top: 20px;
     margin-bottom: 20px;
