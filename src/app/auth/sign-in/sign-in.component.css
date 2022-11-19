@@ -52,12 +52,7 @@
   color: #2748a0;
 }
 
-/* .card {
-    border-radius: 15px;
-    box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.75);
-} */
+
 
 @media screen and (max-width: 767px) {
   .__loginForm  {
@@ -70,3 +65,10 @@
     height: 100%;
   }
 }
+@media screen and (min-width: 767px) and (max-width: 1200px) {
+  .__loginImg img {
+    width: 125%;
+    height: 125%;
+  }
+}
+

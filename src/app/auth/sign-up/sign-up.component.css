@@ -1,31 +1,74 @@
-.bg {
-    background-color: #89CFF0;
-    /* Center the image */
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* Preserve aspet ratio */
-    min-width: 100%;
-    min-height: 100%;
-    padding-top: 150px;
-    padding-bottom: 100px;
-}
 
+
+.__bg {
+  background-color: #DFDFE2;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
 ::placeholder {
-    text-align: center;
-    border-radius: 15px;
+  text-align: center;
+  border-radius: 20px;
+}
+.__register{
+  box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  background-color: #F9FaF5;
+  color: #F9FaF5;
+}
+.__registerImg img {
+  width: 80%;
+  height: 80%;
+}
+.__registerImg, .__registerForm  {
+  background-color: #F9FaF5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  border-radius: 15px;
+}
+.__registerForm  {
+  background-color: #2748a0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.__person img{
+  color: #F9FaF5 !important;
+}
+.__btn_singUp,.__btn_singUp input {
+  border: none;
+  background-color: #F9FaF5;
+  color: #2748a0;
+}
+.__btn_singUp:hover {
+  border: none;
+  background-color: #F9FaF5;
+  color: #2748a0;
 }
 
-.card {
-    border-radius: 15px;
-    box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.75);
+
+
+@media screen and (max-width: 767px) {
+  .__registerForm  {
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .__registerImg img {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 1200px) {
+  .__registerImg img {
+    width: 125%;
+    height: 125%;
+  }
 }
 
-@media screen and (max-width:1600px) {
-    .bg {
-        margin-top: -50px;
-        padding-top: 0px;
-    }
-}
