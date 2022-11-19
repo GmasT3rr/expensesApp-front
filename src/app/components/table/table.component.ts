@@ -7,29 +7,29 @@ import { ExpensesService } from '../../services/expenses.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  
+
   public dataAvailable = false
   public expenses:any = []
-
+  private userID = localStorage.getItem('userID') ||''
   constructor(private expensesService:ExpensesService) { }
-  
+
   ngOnInit(): void {
-  this.getAllExpenses()
+  this.getUserExpenses()
   }
-  
-  async getAllExpenses(){
-    (await this.expensesService.getAllExpenses()).subscribe((res:any)=>{
+
+  async getUserExpenses(){
+    (await this.expensesService.getExpensesFromUser()).subscribe((res:any)=>{
       this.expenses = res
       // console.log(res);
       this.dataAvailable = true
     })
   }
-  
+
   getExpense(expense:any){
     this.expensesService.expense.emit(expense)
   }
 
-  deleteExpense(){
-    console.log('delete');
-  }
+  //   refresh(): void {
+//     window.location.reload();
+// }
 }

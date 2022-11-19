@@ -1,0 +1,72 @@
+<div class="bg container card mt-5">
+    <div class="row d-flex justify-content-center text-center">
+        <div *ngIf="dataAvailable">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 mb-5">
+                    <div>
+                        <h5 style="color:rgba(28,163,129, 1);font-weight: bold">
+                            FILTER BY                           
+                        <i class="bi bi-filter">
+                        </i>
+                    </h5>
+                    </div>
+                    <div>
+                        <select #currMonth (change)="selectMonth(currMonth.value)">
+                            <option [value]="month[1]" *ngFor="let month of months">{{month[0]}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center" *ngIf="expensesInfo.length > 0">
+                <div class="col-10">
+                    <div style="display: block">
+                        <canvas baseChart
+                          [data]="barChartData"
+                          [options]="barChartOptions"
+                          [type]="barChartType">
+                        </canvas>
+                      </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center" *ngIf="expensesInfo.length <= 0">
+                <div class="col-12">
+                    <div class="mt-1 mb-5" >
+                        <h5 style="font-weight: bold">You doesn't have entries for this month</h5>
+                    </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center text-center">
+        <div *ngIf="!dataAvailable">
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    <h3>¡Aun no tiene ningun gasto!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container" *ngIf="expensesInfo.length > 0">
+    <div class="row d-flex justify-content-around mt-5 mb-5 ">
+    <div *ngIf="dataAvailable" class="table-responsive col-10 ">
+        <h5 style="color:rgba(28,163,129, 1);
+        font-weight: bold">
+            Expenses: 
+        </h5>
+        <table class="table" >
+            <tbody *ngFor="let expense of expensesInfo">
+                <tr>
+                    <td >
+                        {{expense.category}}
+                    </td>
+                    <td class="text-center">
+                        <strong>${{expense.price}}</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+

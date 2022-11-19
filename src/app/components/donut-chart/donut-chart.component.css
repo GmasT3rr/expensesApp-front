@@ -1,0 +1,23 @@
+.bg{
+    background-color: white;
+padding-top: 20px;
+padding-bottom: 50px;
+border-radius: 15px;
+
+}
+
+.doughnut-description .title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.doughnut-description .expenses{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width:1024px) and (max-width:1440px){
+    .doughnut-description .expenses{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        }
+}

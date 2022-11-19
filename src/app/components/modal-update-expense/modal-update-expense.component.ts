@@ -15,9 +15,10 @@ export class ModalUpdateExpenseComponent implements OnInit {
   public categories:any
   public expense:any
 
-  constructor(private expensesService:ExpensesService, private categoriesService:CategoriesService) { 
+  constructor(private expensesService:ExpensesService, private categoriesService:CategoriesService) {
     this.updateExpenseForm = new FormGroup({
       name: new FormControl('',[Validators.required,Validators.maxLength(30)]),
+      date: new FormControl('',[Validators.required]),
       category: new FormControl('',[Validators.required]),
       price: new FormControl('',[Validators.required]),
       imgUrl: new FormControl(''),
@@ -28,14 +29,14 @@ export class ModalUpdateExpenseComponent implements OnInit {
     this.getCategories();
     this.getExpense()
   }
-  
+
   async getExpense(){
     await this.expensesService.expense.subscribe((expense:any)=>{
       this.expense = expense
       // console.log('subscribed expense',this.expense);
     })
   }
-  
+
   async getCategories(){
     (await this.categoriesService.getAllCategories()).subscribe((res:any)=>{
       this.categories = res
@@ -45,10 +46,12 @@ export class ModalUpdateExpenseComponent implements OnInit {
 
   async updateExpense(){
      let name = this.updateExpenseForm.value.name
+     let date = this.updateExpenseForm.value.date
      let price = this.updateExpenseForm.value.price
      let category = this.updateExpenseForm.value.category
      let imgUrl = this.updateExpenseForm.value.imgUrl
      let id = this.expense._id
+     const userID = localStorage.getItem('userID') || ''
 
      if (name === '' || null ){
       name = this.expense.name
@@ -60,12 +63,13 @@ export class ModalUpdateExpenseComponent implements OnInit {
       category = this.expense.category
      }
      const newExpense:Expense = {
-       name,price,category,imgUrl
+       name,price,category,imgUrl,date, userID
      };
     //  console.log(newExpense);
        (await this.expensesService.updateExpenseById(newExpense,id)).subscribe((res:any)=>{
         console.log(res);
        })
     // console.log('form:',this.newExpenseForm.value);
+    window.location.reload();
   }
 }

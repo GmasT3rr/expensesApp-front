@@ -11,6 +11,8 @@ import { TableComponent } from './table/table.component';
 import { ModalNewExpenseComponent } from './modal-new-expense/modal-new-expense.component';
 import { ModalUpdateExpenseComponent } from './modal-update-expense/modal-update-expense.component';
 import { ModalDeleteExpenseComponent } from './modal-delete-expense/modal-delete-expense.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+
 
 
 
@@ -20,7 +22,8 @@ import { ModalDeleteExpenseComponent } from './modal-delete-expense/modal-delete
     TableComponent,
     ModalNewExpenseComponent,
     ModalUpdateExpenseComponent,
-    ModalDeleteExpenseComponent
+    ModalDeleteExpenseComponent,
+    BarChartComponent
   ],
   imports: [
     CommonModule,
@@ -30,10 +33,12 @@ import { ModalDeleteExpenseComponent } from './modal-delete-expense/modal-delete
   ],
   exports:[
     DonutChartComponent,
+    BarChartComponent,
     TableComponent,
     ModalNewExpenseComponent,
     ModalUpdateExpenseComponent,
     ModalDeleteExpenseComponent
   ]
+
 })
 export class ComponentsModule { }

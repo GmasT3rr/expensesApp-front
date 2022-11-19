@@ -14,11 +14,12 @@ export class ModalNewExpenseComponent implements OnInit {
   public newExpenseForm:FormGroup
   public categories!:any
 
-  constructor(private expensesService:ExpensesService, private categoriesService:CategoriesService) { 
+  constructor(private expensesService:ExpensesService, private categoriesService:CategoriesService) {
     this.newExpenseForm = new FormGroup({
       name: new FormControl('',[Validators.required,Validators.maxLength(30)]),
       category: new FormControl('',[Validators.required]),
       price: new FormControl('',[Validators.required]),
+      date: new FormControl('',[Validators.required]),
       imgUrl: new FormControl(''),
     })
   }
@@ -26,7 +27,7 @@ export class ModalNewExpenseComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories()
   }
-  
+
   async getCategories(){
     (await this.categoriesService.getAllCategories()).subscribe((res:any)=>{
       this.categories = res
@@ -36,16 +37,19 @@ export class ModalNewExpenseComponent implements OnInit {
 
   async createNewExpense(){
      const name = this.newExpenseForm.value.name
+     const date = this.newExpenseForm.value.date
      const price = this.newExpenseForm.value.price
      const category = this.newExpenseForm.value.category
      const imgUrl = this.newExpenseForm.value.imgUrl
+     const userID = localStorage.getItem('userID') || ''
 
      const newExpense:Expense = {
-       name,price,category,imgUrl
+       name,price,category,imgUrl,date,userID
      };
       (await this.expensesService.createNewExpense(newExpense)).subscribe((res:any)=>{
         // console.log(res);
       })
     // console.log('form:',this.newExpenseForm.value);
+    window.location.reload();
   }
 }

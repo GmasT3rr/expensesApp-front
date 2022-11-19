@@ -1,17 +1,17 @@
-<div class="row d-flex justify-content-around mt-5 mb-5">
-    <div class="text-center" style="font-weight: bold;">
-        <h1>¡Aqui podra ver todos sus gastos!</h1>
-        <h3>Gastos:</h3>
+<div class="bg">
+    <div class="d-flex justify-content-center mb-3">
+        <div class="col-3 btn text-center"
+        data-bs-toggle="modal" 
+        data-bs-target="#createExpense"
+        style="border-color: rgba(28,163,129, 1);
+        background-color:rgba(28,163,129, .3) ;"
+        >
+        <i class="bi bi-plus-square-fill"></i>
+        <strong> Create new expense</strong>
+        </div>
     </div>
-    <div routerLink="/home" class="col-3 text-center btn btn-primary mt-5">
-        Volver a mi resumen
-    </div>
-    <div class="col-3 text-center btn btn-warning mt-5" data-bs-toggle="modal" data-bs-target="#createExpense">
-        Ingresar un nuevo gasto
-    </div>
+    <app-table></app-table>
+    <app-modal-new-expense></app-modal-new-expense>
+    <app-modal-update-expense></app-modal-update-expense>
+    <app-modal-delete-expense></app-modal-delete-expense>
 </div>
-
-<app-modal-new-expense></app-modal-new-expense>
-<app-modal-update-expense></app-modal-update-expense>
-<app-modal-delete-expense></app-modal-delete-expense>
-<app-table></app-table>

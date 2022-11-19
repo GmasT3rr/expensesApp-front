@@ -32,6 +32,8 @@ export class ModalDeleteExpenseComponent implements OnInit {
     await (await this.expensesService.deleteExpenseById(id)).subscribe((res:any)=>{
        console.log(res);
       })
+      window.location.reload();
+
   }
 
 }

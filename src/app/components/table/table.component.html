@@ -1,22 +1,24 @@
-<div class="container mt-5 mb-5">
-    <div *ngIf="dataAvailable" class="table-responsive">
+<div class="container">
+    <div class="row d-flex justify-content-around mt-5 mb-5 ">
+
+    <div *ngIf="dataAvailable" class="table-responsive col-8 card">
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        Nombre
+                        Name
                     </th>
                     <th>
-                        Categoria
+                        Category
                     </th>
                     <th>
-                        Costo
+                        Price
                     </th>
                     <th>
-                        Fecha
+                        Date
                     </th>
                     <th colspan="2" class="text-center">
-                        Acciones
+                        Actions
                     </th>
                 </tr>
             </thead>
@@ -32,7 +34,7 @@
                         ${{expense.price}}
                     </td>
                     <td>
-                        {{expense.updatedAt | slice:0:10}}
+                        {{expense.date | slice:0:10}}
                     </td>
                     <td class="text-center">
                         <i (click)="getExpense(expense)"
@@ -52,3 +54,5 @@
         </table>
     </div>
 </div>
+</div>
+

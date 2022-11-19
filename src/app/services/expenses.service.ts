@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 
@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ExpensesService {
   @Output() expense:EventEmitter<any> = new EventEmitter();
-  
+
   private URL = environment.config.API_URL
 
   constructor(private http:HttpClient) { }
@@ -15,6 +15,17 @@ export class ExpensesService {
   async getAllExpenses(){
     return this.http.get(`${this.URL}/expenses`)
   }
+
+  async getExpensesFromUser(){
+    const email = localStorage.getItem('email')  || ''
+    const _headers = new HttpHeaders({ 'email': email});
+    const url = `${this.URL}/expenses/userExpenses`
+    return this.http.get(url,{
+      headers:_headers
+    })
+  }
+
+
 
   async createNewExpense(expense:any){
     const url = `${this.URL}/expenses`
