@@ -10,7 +10,6 @@ export class TableComponent implements OnInit {
 
   public dataAvailable = false
   public expenses:any = []
-  private userID = localStorage.getItem('userID') ||''
   constructor(private expensesService:ExpensesService) { }
 
   ngOnInit(): void {

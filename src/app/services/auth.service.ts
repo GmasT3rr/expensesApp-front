@@ -43,9 +43,6 @@ export class AuthService {
 
   }
 
-  signOut(){
-    localStorage.removeItem('x-access-token')
-  }
 
   get token(){
     return localStorage.getItem('x-access-token') || ''

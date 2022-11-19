@@ -1,23 +1,35 @@
-<div class="bg">
-    <div class="d-flex justify-content-center mb-3">
-        <div class="col-3 btn text-center"
-        (click)="isSelected=false"
-        style="border-color: rgba(28,163,129, 1);
-        background-color:rgba(28,163,129, .3) ;"
-        >
-            <i class="bi bi-pie-chart-fill"></i>
-            <strong> Doughnut</strong>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-3 btn text-center"
-        (click)="isSelected=true"
-        style="border-color: rgba(28,163,129, 1);
-        background-color:rgba(28,163,129, .3) ;"
-        >
-            <i class="bi bi-bar-chart-line-fill"></i>
-            <strong> Bar</strong>
-        </div>
+<div class="container-fluid __bg">
+  <div
+    class="row d-flex justify-content-center align-items-center text-center __select_chart"
+  >
+    <div class="col-12 mt-4 __title" >
+      <h1>Welcome again to <strong>ExpensesApp</strong>!</h1>
     </div>
-    <app-donut-chart *ngIf="!isSelected"></app-donut-chart>
-    <app-bar-chart *ngIf="isSelected"></app-bar-chart>
+    <div class="col-lg-4  __charts_img">
+      <img src="assets\svgs\home-charts.svg" alt="" width="75%" height="75%" />
+    </div>
+    <div class="col-lg-4 flex-column">
+      <div class="my-3 align-items-center">
+        <div class="col-lg-6 __charts_title btn" (click)="isSelected = false">
+          What do you want to see?
+        </div>
+      </div>
+      <div class="my-3">
+        <div class="col-6 btn __pie_chart_btn" (click)="isSelected = false">
+          <i class="bi bi-pie-chart-fill"></i>
+          Doughnut
+        </div>
+      </div>
+      <div class="my-3">
+        <div class="col-6 btn __bar_chart_btn" (click)="isSelected = true">
+          <i class="bi bi-bar-chart-line-fill"></i>
+          Bar
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <app-donut-chart *ngIf="!isSelected"></app-donut-chart>
+  <app-bar-chart *ngIf="isSelected"></app-bar-chart>
 </div>

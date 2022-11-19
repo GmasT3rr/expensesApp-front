@@ -43,6 +43,7 @@ ngOnInit(): void {
       next:(res:any) =>{
         localStorage.setItem('x-access-token',res.token)
         localStorage.setItem('email',email)
+        localStorage.setItem('userID', res.userID)
         this.router.navigateByUrl('/main')
       }
     })
