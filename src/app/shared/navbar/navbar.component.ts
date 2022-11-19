@@ -15,7 +15,9 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut(){
+    localStorage.clear()
     this.authService.signOut()
     this.router.navigateByUrl('/auth')
+
   }
 }

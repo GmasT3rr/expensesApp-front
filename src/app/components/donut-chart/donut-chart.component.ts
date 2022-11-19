@@ -31,7 +31,6 @@ export class DonutChartComponent implements OnInit {
   public doughnutChartOptions: ChartConfiguration['options'] = {}
   async getUserExpenses(){
     (await this.expensesService.getExpensesFromUser()).subscribe((res:any)=>{
-      console.log(res);
       const filteredByMonth = res.filter((x:any)=>{
         if(this.selectedMonth === '' || null){
           return res

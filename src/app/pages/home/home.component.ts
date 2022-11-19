@@ -16,9 +16,12 @@ export class HomeComponent implements OnInit {
     this.getUserExpenses()
   }
 
+  // Solo para ver que funciona el metodo correctamente
+  // BORRAR
+
   async getUserExpenses(){
     (await this.expensesService.getExpensesFromUser()).subscribe((res:any)=>{
-      console.log('user expenses',res);
+      console.log('Current user expenses',res);
     })
   }
 
