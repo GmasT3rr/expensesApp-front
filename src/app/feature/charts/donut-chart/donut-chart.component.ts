@@ -7,8 +7,8 @@ import {
   ChartOptions,
   ChartType,
 } from 'chart.js';
-import { ExpensesService } from '../../services/expenses.service';
-import { Months } from '../../enums/months';
+import { ExpensesService } from '../../../core/services/expenses.service';
+import { Months } from '../../../core/enums/months';
 
 @Component({
   selector: 'app-donut-chart',

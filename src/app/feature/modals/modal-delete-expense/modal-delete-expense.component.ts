@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpensesService } from '../../services/expenses.service';
-import { CategoriesService } from '../../services/categories.service';
-import { Expense } from '../../models/expense';
+import { ExpensesService } from '../../../core/services/expenses.service';
+import { CategoriesService } from '../../../core/services/categories.service';
+import { Expense } from '../../../core/models/expense';
 
 @Component({
   selector: 'app-modal-delete-expense',
@@ -12,21 +12,21 @@ export class ModalDeleteExpenseComponent implements OnInit {
 
   public expense:any
 
-  constructor(private expensesService:ExpensesService, private categoriesService:CategoriesService) { 
+  constructor(private expensesService:ExpensesService, private categoriesService:CategoriesService) {
 
   }
 
   ngOnInit(): void {
     this.getExpense()
   }
-  
+
   async getExpense(){
     await this.expensesService.expense.subscribe((expense:any)=>{
        this.expense = expense
       // console.log('subscribed expense',this.expense);
     })
   }
-  
+
   async deleteExpense(){
     const id = this.expense._id
     await (await this.expensesService.deleteExpenseById(id)).subscribe((res:any)=>{

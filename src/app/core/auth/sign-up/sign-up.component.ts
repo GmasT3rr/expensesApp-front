@@ -12,7 +12,7 @@ export class SignUpComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
   }
 
   signUpForm: FormGroup;
@@ -40,18 +40,18 @@ export class SignUpComponent implements OnInit {
       // dni  :new FormControl('',[Validators.required,Validators.pattern(this.expresiones.dni)]),
       // telefono  :new FormControl('',[Validators.required,Validators.pattern(this.expresiones.numero)]),
       // localidad  :new FormControl('',[Validators.minLength(5)]),
-  
+
     })
   }
-  
-  async signUp(){     
+
+  async signUp(){
     const username = this.signUpForm.value.username;
     const email = this.signUpForm.value.email;
     const password = this.signUpForm.value.password
     const passwordRepeat = this.signUpForm.value.passwordRepeat
 
     if(password != passwordRepeat) return alert('Passwords must be the same')
-    
+
     return (await this.authService.singUp(username,email,password)).subscribe({
       error:(err)=>{
         console.log(err.error.message)

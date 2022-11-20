@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartType, ChartData } from 'chart.js';
-import { Months } from 'src/app/enums/months';
-import { ExpensesService } from '../../services/expenses.service';
+import { Months } from 'src/app/core/enums/months';
+import { ExpensesService } from '../../../core/services/expenses.service';
 
 @Component({
   selector: 'app-bar-chart',

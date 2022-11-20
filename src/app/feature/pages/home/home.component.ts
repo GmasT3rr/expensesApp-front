@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpensesService } from 'src/app/services/expenses.service';
+import { ExpensesService } from 'src/app/core/services/expenses.service';
 
 @Component({
   selector: 'app-home',
