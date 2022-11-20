@@ -22,7 +22,6 @@ export class HomeTableComponent implements OnInit {
     });
     let sum = valuesArray.reduce((a:any,b:any)=>a+b,0)
     this.totalSpent = sum
-    console.log(this.totalSpent);
   }
 
 }

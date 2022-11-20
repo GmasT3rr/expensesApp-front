@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpensesService } from 'src/app/core/services/expenses.service';
 
 @Component({
   selector: 'app-home',
@@ -10,19 +9,9 @@ export class HomeComponent implements OnInit {
 
   isSelected = false
 
-  constructor(private expensesService:ExpensesService){
+  constructor(){
   }
   ngOnInit(): void {
-    this.getUserExpenses()
-  }
-
-  // Solo para ver que funciona el metodo correctamente
-  // BORRAR
-
-  async getUserExpenses(){
-    (await this.expensesService.getExpensesFromUser()).subscribe((res:any)=>{
-      console.log('Current user expenses',res);
-    })
   }
 
 }
