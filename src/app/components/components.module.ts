@@ -13,6 +13,7 @@ import { ModalUpdateExpenseComponent } from './modal-update-expense/modal-update
 import { ModalDeleteExpenseComponent } from './modal-delete-expense/modal-delete-expense.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { HomeTableComponent } from './home-table/home-table.component';
+import { FilterComponent } from './filter/filter.component';
 
 
 
@@ -25,7 +26,8 @@ import { HomeTableComponent } from './home-table/home-table.component';
     ModalUpdateExpenseComponent,
     ModalDeleteExpenseComponent,
     BarChartComponent,
-    HomeTableComponent
+    HomeTableComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { HomeTableComponent } from './home-table/home-table.component';
     TableComponent,
     ModalNewExpenseComponent,
     ModalUpdateExpenseComponent,
-    ModalDeleteExpenseComponent
+    ModalDeleteExpenseComponent,
+    FilterComponent
   ]
 
 })

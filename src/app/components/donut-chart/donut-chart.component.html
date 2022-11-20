@@ -6,15 +6,7 @@
     </h5>
   </div>
   <div class="my-3 col-sm-3">
-    <select
-      class="form-select"
-      #currMonth
-      (change)="selectMonth(currMonth.value)"
-    >
-      <option [value]="month[1]" *ngFor="let month of months">
-        {{ month[0] }}
-      </option>
-    </select>
+    <app-filter [months]="months" (selectedMonth)="selectMonth($event)"></app-filter>
   </div>
 </div>
 <div class="my-3 container-fluid col-md-8">
@@ -24,17 +16,22 @@
         class="row d-flex justify-content-center __pie_chart_btn"
         *ngIf="expensesInfo.length > 0"
       >
-        <div class="col-lg-6">
-          <div style="display: block">
+      <div class="col-lg-4 d-flex align-items-center">
+        <img src="assets\svgs\expense-breackdown.svg" alt="" />
+
+      </div>
+        <div class="col-lg-8 d-flex justify-content-center align-items-center">
+          <div class="col-lg-6">
             <canvas
-              baseChart
-              [data]="doughnutChartData"
-              [type]="doughnutChartType"
-              [options]="doughnutChartOptions"
-            >
-            </canvas>
+            baseChart
+            [data]="doughnutChartData"
+            [type]="doughnutChartType"
+            [options]="doughnutChartOptions"
+          >
+          </canvas>
           </div>
         </div>
+
       </div>
       <div
         class="row d-flex justify-content-center"
