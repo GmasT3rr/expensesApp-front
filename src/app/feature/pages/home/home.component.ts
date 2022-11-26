@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  isSelected = false
+  selectedChartName:any = ''
+
+  selectChart(selectedChart:any){
+    this.selectedChartName = selectedChart
+  }
 
   constructor(){
   }

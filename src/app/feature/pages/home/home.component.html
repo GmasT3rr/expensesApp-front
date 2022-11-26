@@ -3,41 +3,53 @@
     <div class="col-12 mt-4 __title">
       <h1>Welcome again to <strong>ExpensesApp</strong>!</h1>
       <h2>What do you want to see?</h2>
-
     </div>
   </div>
   <div class="__bg row d-flex justify-content-center align-items-center">
     <div class="col-md-4 order-md-2">
-      <img src="assets\svgs\home-charts.svg" alt="">
+      <img src="assets\svgs\home-charts.svg" alt="" />
     </div>
     <div class="col-md-4 order-md-1">
       <div class="flex-column text-center">
         <div class="col-12 my-3">
-          <div
-            class="col-md-6 btn __pie_chart_btn"
-            (click)="isSelected = false"
-          >
-            <h4><i class="bi bi-pie-chart-fill"></i> Doughnut</h4>
-          </div>
+          <app-home-btns
+          [btnStylesRef]="'__pie_chart_btn'"
+
+            [chartValue]="'doughnutChart'"
+            [chartName]="'Doughnut'"
+            [chartIcon]="'bi bi-pie-chart-fill'"
+            (selectedChart)="selectChart($event)"
+          ></app-home-btns>
         </div>
         <div class="col-12 my-3">
-          <div class="col-md-6 btn __bar_chart_btn" (click)="isSelected = true">
-            <h4><i class="bi bi-bar-chart-line-fill"></i> Bar</h4>
-          </div>
+          <app-home-btns
+          [btnStylesRef]="'__bar_chart_btn'"
+            [chartValue]="'barChart'"
+            [chartName]="'Bar'"
+            [chartIcon]="'bi bi-bar-chart-line-fill'"
+            (selectedChart)="selectChart($event)"
+          ></app-home-btns>
         </div>
+        <!--  -->
         <div class="col-12 my-3">
-          <div
-            class="col-md-6 btn __pie_chart_btn"
-            (click)="isSelected = false"
-          >
-            <h4><i class="bi bi-question-lg"></i> Comming soon</h4>
-          </div>
+          <app-home-btns
+            [btnStylesRef]="'__bar_chart_btn'"
+            [chartValue]="'barChart'"
+            [chartName]="'Comming soon'"
+            [chartIcon]="'bi bi-question-lg'"
+            (selectedChart)="selectChart($event)"
+          ></app-home-btns>
         </div>
+        <!--  -->
       </div>
     </div>
   </div>
-  <app-donut-chart *ngIf="!isSelected"></app-donut-chart>
-  <app-bar-chart *ngIf="isSelected"></app-bar-chart>
+  <ng-container *ngIf="selectedChartName === 'doughnutChart'">
+    <app-donut-chart></app-donut-chart>
+  </ng-container>
+  <ng-container *ngIf="selectedChartName === 'barChart'">
+    <app-bar-chart></app-bar-chart>
+  </ng-container>
 
   <!--  -->
 </div>

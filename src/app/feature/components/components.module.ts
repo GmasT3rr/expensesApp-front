@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from './dummy/filter/filter.component';
 import { HomeTableComponent } from './dummy/home-table/home-table.component';
+import { HomeBtnsComponent } from './dummy/home-btns/home-btns.component';
 
 
 
@@ -15,7 +16,8 @@ import { HomeTableComponent } from './dummy/home-table/home-table.component';
 @NgModule({
   declarations: [
     HomeTableComponent,
-    FilterComponent
+    FilterComponent,
+    HomeBtnsComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { HomeTableComponent } from './dummy/home-table/home-table.component';
   ],
   exports:[
     FilterComponent,
-    HomeTableComponent
+    HomeTableComponent,
+    HomeBtnsComponent
   ]
 
 })

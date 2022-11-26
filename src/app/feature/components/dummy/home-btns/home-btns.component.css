@@ -1,0 +1,12 @@
+
+.__pie_chart_btn,
+.__bar_chart_btn {
+  background-color: #2748a0;
+  color: #f9faf5;
+}
+.__pie_chart_btn:hover,
+.__bar_chart_btn:hover {
+  background-color: #2748a0;
+  color: #f9faf5;
+}
+
