@@ -1,0 +1,78 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="updateExpense"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="updateExpenseLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="updateExpenseLabel">
+          Do you want to edit this expense?
+        </h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row d-flex justify-content-center">
+          <div>
+            <h5><strong>Current info</strong></h5>
+          </div>
+          <div><strong>Name:</strong> {{ expense?.name }}</div>
+          <div><strong>Category:</strong> {{ expense?.category }}</div>
+          <div><strong>Price:</strong> {{ expense?.price }}</div>
+        </div>
+        <form [formGroup]="updateExpenseForm">
+          <div class="row d-flex justify-content-center">
+            <select formControlName="category">
+              <option value="" disabled selected>Select a new category</option>
+              <option *ngFor="let category of categories">
+                {{ category.category }}
+              </option>
+            </select>
+            <input
+              type="number"
+              formControlName="price"
+              placeholder="Enter the new price$"
+            />
+            <input
+              type="text"
+              formControlName="name"
+              placeholder="Enter the new name"
+            />
+            <input
+              type="date"
+              formControlName="date"
+              placeholder="Enter the new date"
+            />
+          </div>
+        </form>
+        <div class="text-center">
+          <div><strong>Important!</strong></div>
+          <div>Only the values you entered will be modified</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn __btn_cancel" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn __btn_update"
+          data-bs-dismiss="modal"
+          (click)="updateExpense()"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

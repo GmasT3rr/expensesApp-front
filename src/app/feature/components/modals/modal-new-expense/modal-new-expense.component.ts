@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Expense } from 'src/app/core/models/expense';
-import { ExpensesService } from '../../../core/services/expenses.service';
-import { CategoriesService } from '../../../core/services/categories.service';
+import { ExpensesService } from '../../../../core/services/expenses.service';
+import { CategoriesService } from '../../../../core/services/categories.service';
 
 @Component({
   selector: 'app-modal-new-expense',

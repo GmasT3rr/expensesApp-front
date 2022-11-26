@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpensesService } from '../../../core/services/expenses.service';
-import { CategoriesService } from '../../../core/services/categories.service';
-import { Expense } from '../../../core/models/expense';
+import { ExpensesService } from '../../../../core/services/expenses.service';
+import { CategoriesService } from '../../../../core/services/categories.service';
+import { Expense } from '../../../../core/models/expense';
 
 @Component({
   selector: 'app-modal-delete-expense',

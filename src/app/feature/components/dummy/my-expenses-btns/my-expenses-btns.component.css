@@ -1,0 +1,10 @@
+.__create_new_expense{
+  background-color: #2748a0;
+  color: #f9faf5;
+  font-size: 1.25rem;
+}
+
+.__create_new_expense:hover {
+  background-color: #2748a0;
+  color: #f9faf5;
+}

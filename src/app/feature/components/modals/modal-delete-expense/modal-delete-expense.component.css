@@ -1,0 +1,12 @@
+
+.bi-x-lg::before{
+  display: none;
+}
+.__btn_cancel{
+  background-color: #f56d91;
+  color: #f9faf5;
+}
+.__btn_delete{
+  background-color: #2748a0;
+  color: #f9faf5;
+}

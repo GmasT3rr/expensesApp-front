@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  selectedChartName:any = ''
+  selectedChartName:any = 'doughnutChart'
 
   selectChart(selectedChart:any){
     this.selectedChartName = selectedChart

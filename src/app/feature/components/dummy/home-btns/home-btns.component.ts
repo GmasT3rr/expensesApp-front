@@ -10,7 +10,6 @@ export class HomeBtnsComponent implements OnInit {
   @Input() chartName:any = ''
   @Input() chartValue:any = ''
   @Input() chartIcon:any = ''
-
   @Output() selectedChart:any = new EventEmitter<string>()
 
   constructor() { }

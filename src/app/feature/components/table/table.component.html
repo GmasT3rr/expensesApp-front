@@ -1,0 +1,51 @@
+<div class="__bg p-5 my-5">
+  <div class="container">
+    <div class="row d-flex justify-content-around ">
+      <div *ngIf="dataAvailable" class="table-responsive col-lg-10 card">
+        <table class="table">
+          <thead>
+            <tr class="__t_head">
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th colspan="2" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let expense of expenses; let i = index">
+            <tr>
+              <td>
+                {{ expense.name }}
+              </td>
+              <td>
+                {{ expense.category }}
+              </td>
+              <td><Strong>${{ expense.price }}</Strong></td>
+              <td>
+                {{ expense.date | slice: 0:10 }}
+              </td>
+              <td class="text-center">
+                <i
+                  (click)="getExpense(expense)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#updateExpense"
+                  class="btn bi bi-pen"
+                  style="color: #2748a0"
+                ></i>
+              </td>
+              <td class="text-center">
+                <i
+                  (click)="getExpense(expense)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteExpense"
+                  class="btn bi bi-trash3"
+                  style="color: #f56d91"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

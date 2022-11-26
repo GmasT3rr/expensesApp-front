@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ExpensesService } from '../../../core/services/expenses.service';
-import { CategoriesService } from '../../../core/services/categories.service';
-import { Expense } from '../../../core/models/expense';
+import { ExpensesService } from '../../../../core/services/expenses.service';
+import { CategoriesService } from '../../../../core/services/categories.service';
+import { Expense } from '../../../../core/models/expense';
 
 @Component({
   selector: 'app-modal-update-expense',
@@ -61,6 +61,9 @@ export class ModalUpdateExpenseComponent implements OnInit {
      }
      if (category === '' || null ){
       category = this.expense.category
+     }
+     if (date === '' || null ){
+      date = this.expense.date
      }
      const newExpense:Expense = {
        name,price,category,imgUrl,date, userID

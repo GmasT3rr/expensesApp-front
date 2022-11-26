@@ -4,8 +4,8 @@
     #currMonth
     (change)="selectMonth(currMonth.value)"
   >
-    <option [value]="month[1]" *ngFor="let month of months">
-      {{ month[0] }}
+    <option  [value]="month[1]" *ngFor="let month of months">
+      {{ month[0] | monthPipe}}
     </option>
   </select>
 </div>

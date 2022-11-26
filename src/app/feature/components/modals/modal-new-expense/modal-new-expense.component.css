@@ -1,0 +1,17 @@
+input,
+select {
+    margin: 15px;
+    border: solid 2px #2748a0;
+}
+
+.bi-x-lg::before{
+  display: none;
+}
+.__btn_cancel{
+  background-color: #f56d91;
+  color: #f9faf5;
+}
+.__btn_create{
+  background-color: #2748a0;
+  color: #f9faf5;
+}

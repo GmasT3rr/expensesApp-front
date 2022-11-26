@@ -7,9 +7,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import { ModalsModule } from '../modals/modals.module';
 import { ChartsModule } from '../charts/charts.module';
-import { TableModule } from '../table-info/table.module';
 
 
 
@@ -24,9 +22,7 @@ import { TableModule } from '../table-info/table.module';
     RouterModule,
     ComponentsModule,
     SharedModule,
-    ModalsModule,
-    ChartsModule,
-    TableModule
+    ChartsModule
   ]
 })
 export class PagesModule { }

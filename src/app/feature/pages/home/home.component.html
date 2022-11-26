@@ -44,12 +44,12 @@
       </div>
     </div>
   </div>
-  <ng-container *ngIf="selectedChartName === 'doughnutChart'">
+  <div *ngIf="selectedChartName === 'doughnutChart'">
     <app-donut-chart></app-donut-chart>
-  </ng-container>
-  <ng-container *ngIf="selectedChartName === 'barChart'">
+  </div>
+  <div *ngIf="selectedChartName === 'barChart'">
     <app-bar-chart></app-bar-chart>
-  </ng-container>
+  </div>
 
   <!--  -->
 </div>

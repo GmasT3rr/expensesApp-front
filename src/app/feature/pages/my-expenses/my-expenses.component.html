@@ -1,17 +1,15 @@
 <div class="bg">
-    <div class="d-flex justify-content-center mb-3">
-        <div class="col-3 btn text-center"
-        data-bs-toggle="modal" 
-        data-bs-target="#createExpense"
-        style="border-color: rgba(28,163,129, 1);
-        background-color:rgba(28,163,129, .3) ;"
-        >
-        <i class="bi bi-plus-square-fill"></i>
-        <strong> Create new expense</strong>
-        </div>
-    </div>
-    <app-table></app-table>
-    <app-modal-new-expense></app-modal-new-expense>
-    <app-modal-update-expense></app-modal-update-expense>
-    <app-modal-delete-expense></app-modal-delete-expense>
+  <div class="d-flex justify-content-center mb-3">
+    <app-my-expenses-btns
+      data-bs-toggle="modal"
+      data-bs-target="#createExpense"
+      [btnName]="'Create new expense'"
+      [btnIcon]="'bi bi-plus-square-fill'"
+      [btnStylesRef]="'__create_new_expense'"
+    ></app-my-expenses-btns>
+  </div>
+  <app-table></app-table>
+  <app-modal-new-expense></app-modal-new-expense>
+  <app-modal-update-expense></app-modal-update-expense>
+  <app-modal-delete-expense></app-modal-delete-expense>
 </div>

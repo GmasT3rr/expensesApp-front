@@ -1,25 +1,15 @@
-
-.__filter{
-  background-color: #2748a0;
-color: white;
-
-}
-.__pie_chart_btn{
+.__bg{
   background-color: white;
-  margin: 0;
-}
-.doughnut-description .title{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.doughnut-description .expenses{
-    margin-top: 20px;
-    margin-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 15px;
 }
 
-@media screen and (min-width:1024px) and (max-width:1440px){
-    .doughnut-description .expenses{
-        margin-top: 20px;
-        margin-bottom: 20px;
-        }
+.__filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2748a0;
+  color: white;
 }
+
