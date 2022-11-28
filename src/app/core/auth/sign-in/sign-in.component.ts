@@ -34,19 +34,7 @@ ngOnInit(): void {
   async signIn(){
     const email = this.signInForm.value.email
     const password = this.signInForm.value.password
-
-    return (await this.authService.singIn(email,password)).subscribe({
-      error:(err) =>{
-        console.log(err.error.message)
-        alert(err.error.message)
-      },
-      next:(res:any) =>{
-        localStorage.setItem('x-access-token',res.token)
-        localStorage.setItem('email',email)
-        localStorage.setItem('userID', res.userID)
-        this.router.navigateByUrl('/main')
-      }
-    })
+    return await this.authService.singIn(email,password)
 }
 
 

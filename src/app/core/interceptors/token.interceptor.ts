@@ -27,6 +27,8 @@ export class TokenInterceptor implements HttpInterceptor{
       headers
     });
 
+    this.authService.isTokenExpired()
+
     return next.handle(reqClone).pipe(
       catchError(this.handleError)
     )
