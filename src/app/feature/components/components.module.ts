@@ -13,6 +13,8 @@ import { ModalUpdateExpenseComponent } from './modals/modal-update-expense/modal
 import { ModalNewExpenseComponent } from './modals/modal-new-expense/modal-new-expense.component';
 import { TableComponent } from './table/table.component';
 import { PipesModule } from 'src/app/core/pipes/pipes.module';
+import { TableFiltersComponent } from './dummy/table-filters/table-filters.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 
 
@@ -29,6 +31,8 @@ import { PipesModule } from 'src/app/core/pipes/pipes.module';
     ModalUpdateExpenseComponent,
     ModalNewExpenseComponent,
     TableComponent,
+    TableFiltersComponent,
+    BarChartComponent,
 
   ],
   imports: [
@@ -46,7 +50,8 @@ import { PipesModule } from 'src/app/core/pipes/pipes.module';
     ModalDeleteExpenseComponent,
     ModalUpdateExpenseComponent,
     ModalNewExpenseComponent,
-    TableComponent
+    TableComponent,
+    BarChartComponent
   ]
 
 })

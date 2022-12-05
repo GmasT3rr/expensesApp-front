@@ -1,0 +1,43 @@
+.__search input{
+  display: inline-block;
+  width: 100%;
+}
+.__top{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.__top_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+.__center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.__center_info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.__card_title{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.__card_info{
+  display: flex;
+  align-items: center;
+}
+.__number{
+  font-size: 1.2rem;
+
+  color: #9af4aa;
+}

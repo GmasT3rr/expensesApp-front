@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { MyExpensesComponent } from './my-expenses/my-expenses.component';
+import { SummaryComponent } from './summary/summary.component';
 
 const routes: Routes = [
 
   {path:'home',component:HomeComponent},
   {path:'my-expenses',component:MyExpensesComponent},
+  {path:'summary',component:SummaryComponent},
 
   {path:'**',redirectTo:'home',pathMatch:'full'}
 

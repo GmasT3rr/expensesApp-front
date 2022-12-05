@@ -1,12 +1,47 @@
-nav{
-    background-color:
-    #2748a0;
-    font-weight: bold;
+.nav {
+  background-image: linear-gradient(to right, #9af4aa, #7bffce );
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  display: flex;
 }
-a{
-    color: white;
+.__logo img{
+height: 50px;
+width: 50px;
+}
+a, span{
+  color: #ff7bac;
+}
+.__signOut_collapse {
+  display: none;
 }
 
-.navbar-toggler{
-     background-color: white;
+
+@media screen and (max-width: 768px) {
+  .nav {
+    position: relative;
+  }
+  .__brand {
+    display: flex;
+    justify-content: space-between !important;
+    margin: 0;
+  }
+
+
+  .__signOut {
+    display: none;
+  }
+
+  .navbar-toggler {
+    background-color: white;
+  }
+  .__item_menu{
+    text-align: center;
+    display: inline-block;
+    margin: 1rem;
+  }
 }

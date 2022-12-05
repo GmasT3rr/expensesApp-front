@@ -26,7 +26,6 @@ export class AuthService {
         alert(err.error.message)
       },
       next:(res:any) =>{
-        localStorage.setItem('actualDate',Number(new Date()).toString() )
         localStorage.setItem('expiresIn',new Date().setSeconds(res.expiresIn).toString() )
         localStorage.setItem('x-access-token',res.token)
         localStorage.setItem('email',email)

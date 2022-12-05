@@ -1,0 +1,12 @@
+.__bg {
+  background-color: white;
+  padding-top: 1rem;
+  border-radius: 15px;
+}
+.__filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2748a0;
+  color: white;
+}

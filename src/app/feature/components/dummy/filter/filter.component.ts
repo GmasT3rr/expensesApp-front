@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
   @Input() months:any = []
+  @Input() currentMonth:any
   @Output() selectedMonth:any = new EventEmitter<string>()
 
   constructor() { }
@@ -16,6 +17,5 @@ export class FilterComponent implements OnInit {
 
   selectMonth(month:any){
     this.selectedMonth.emit(month)
-
   }
 }

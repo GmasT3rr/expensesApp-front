@@ -1,11 +1,31 @@
-<div class="__bg p-5 my-5">
+<div class="__bg">
   <div class="container">
-    <div class="row d-flex justify-content-around ">
-      <div *ngIf="dataAvailable" class="table-responsive col-lg-10 card">
+    <div class="row d-flex justify-content-center text-center my-4">
+      <!--  -->
+      <!-- <div class="col-5">
+        <app-table-filters
+          [btnName]="'Filter by'"
+          [btnIcon]="'bi bi-filter-left'"
+          [btnStylesRef]="'__filter'"
+        ></app-table-filters>
+      </div>
+      <div class="col-5">
+        <app-my-expenses-btns
+          data-bs-toggle="modal"
+          data-bs-target="#createExpense"
+          [btnName]="'Create new'"
+          [btnIcon]="'bi bi-plus-square-fill'"
+          [btnStylesRef]="'__create_new_expense'"
+        ></app-my-expenses-btns>
+      </div> -->
+      <!--  -->
+    </div>
+    <div class="d-flex justify-content-around">
+      <div *ngIf="dataAvailable" class="table-responsive col-lg-12 card">
         <table class="table">
           <thead>
             <tr class="__t_head">
-              <th>Name</th>
+              <th>Name </th>
               <th>Category</th>
               <th>Price</th>
               <th>Date</th>
@@ -20,9 +40,11 @@
               <td>
                 {{ expense.category }}
               </td>
-              <td><Strong>${{ expense.price }}</Strong></td>
               <td>
-                {{ expense.date | slice: 0:10 }}
+                <Strong>${{ expense.price }}</Strong>
+              </td>
+              <td>
+                {{ expense.date | slice : 0 : 10 }}
               </td>
               <td class="text-center">
                 <i

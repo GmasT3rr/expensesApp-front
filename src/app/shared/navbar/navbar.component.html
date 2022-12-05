@@ -1,19 +1,54 @@
-<nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button"
-         data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-         aria-controls="navbarNavAltMarkup"
-         aria-expanded="false"
-         aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" ></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" routerLink="/home">Home</a>
-          <a class="nav-link" routerLink="main/my-expenses">My expenses</a>
-        </div>
-      </div>
-      <a class="navbar-brand" (click)="signOut()">Sign Out</a>
-
+<nav class="nav navbar flex-column navbar-expand-md">
+  <div class="__brand p-2 col-12">
+    <div>
+      <a class="nav-link __logo"><img src="assets\svgs\piggy.png" alt="" /></a>
     </div>
-  </nav>
+    <div class="d-flex align-items-center">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse flex-column" id="navbarNav">
+    <div class="__item_menu my-2">
+      <a class="nav-link" routerLink="/home">
+        <img src="assets\svgs\icons\home.svg" alt="" />
+      </a>
+      <span>Home</span>
+    </div>
+    <div class="__item_menu my-2">
+      <a class="nav-link" routerLink="main/my-expenses"
+        ><img src="assets\svgs\icons\list.svg" alt="" />
+      </a>
+      <span>Expenses</span>
+    </div>
+
+    <div class="__item_menu my-2">
+      <a class="nav-link" routerLink="main/summary"
+        ><img src="assets\svgs\icons\check-list.svg" alt="" />
+      </a>
+      <span>Summary</span>
+    </div>
+
+    <div class="__signOut_collapse __item_menu my-2">
+      <a class="nav-link" (click)="signOut()"
+        ><img src="assets\svgs\icons\logout.svg" alt="" />
+      </a>
+      <span>Log out</span>
+    </div>
+  </div>
+  <div class="__signOut">
+    <a class="nav-link " (click)="signOut()"
+      ><img src="assets\svgs\icons\logout.svg" alt=""
+    /></a>
+    <span>Log out</span>
+  </div>
+</nav>

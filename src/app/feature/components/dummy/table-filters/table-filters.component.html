@@ -1,0 +1,30 @@
+<div
+  [ngClass]="btnStylesRef"
+  class="btn"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+>
+  <i [ngClass]="btnIcon"></i> {{ btnName }}
+</div>
+<ul class="dropdown-menu">
+  <li>
+    <a class="dropdown-item" (click)="aplicarFiltro('maxPrice')"
+      >Max price</a
+    >
+  </li>
+  <li>
+    <a class="dropdown-item" (click)="aplicarFiltro('minPrice')"
+      >Min price</a
+    >
+  </li>
+  <li>
+    <a class="dropdown-item" (click)="aplicarFiltro('mostRecent')"
+      >Most recent</a
+    >
+  </li>
+  <li>
+    <a class="dropdown-item" (click)="aplicarFiltro('leastRecent')"
+      >Least recent</a
+    >
+  </li>
+</ul>

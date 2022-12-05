@@ -1,13 +1,4 @@
-<div class="bg">
-  <div class="d-flex justify-content-center mb-3">
-    <app-my-expenses-btns
-      data-bs-toggle="modal"
-      data-bs-target="#createExpense"
-      [btnName]="'Create new expense'"
-      [btnIcon]="'bi bi-plus-square-fill'"
-      [btnStylesRef]="'__create_new_expense'"
-    ></app-my-expenses-btns>
-  </div>
+<div class="bg mt-2">
   <app-table></app-table>
   <app-modal-new-expense></app-modal-new-expense>
   <app-modal-update-expense></app-modal-update-expense>

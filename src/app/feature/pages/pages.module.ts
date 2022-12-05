@@ -8,13 +8,15 @@ import { SharedModule } from '../../shared/shared.module';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { ChartsModule } from '../charts/charts.module';
+import { SummaryComponent } from './summary/summary.component';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    MyExpensesComponent
+    MyExpensesComponent,
+    SummaryComponent
   ],
   imports: [
     CommonModule,
