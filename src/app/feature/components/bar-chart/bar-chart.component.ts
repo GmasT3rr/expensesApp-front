@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartType, ChartData } from 'chart.js';
 import { Months } from 'src/app/core/enums/months';
 import { ExpensesService } from '../../../core/services/expenses.service';
@@ -9,6 +9,8 @@ import { ExpensesService } from '../../../core/services/expenses.service';
   styleUrls: ['./bar-chart.component.css'],
 })
 export class BarChartComponent implements OnInit {
+  @Input() title:any = ''
+  @Input() typeOfChart:any = ''
   public dataAvailable = false;
   private selectedMonth = 'firstTime';
   public months: any = [];
@@ -54,7 +56,14 @@ export class BarChartComponent implements OnInit {
           return x.date.slice(5, -17) === this.selectedMonth;
         }}
       });
-      // console.log('filtered by month',filteredByMonth);
+       const counter:any =[]
+       filteredByMonth.forEach((expense:any) => {
+        counter.push(expense.category)
+      });
+      const repeatedCategories = counter.reduce((prev:any, cur:any) => {
+        prev[cur] = (prev[cur] || 0) + 1;
+        return prev;
+      }, {});
       const noDuplicates: any[] = filteredByMonth.reduce(
         (acc: any, curr: any) => {
           const categoryExists = acc.find(
@@ -80,6 +89,8 @@ export class BarChartComponent implements OnInit {
         []
       );
       // console.log('sin duplicados',noDuplicates);
+      const amountPerCategory:any = Object.values(repeatedCategories)
+      console.log(amountPerCategory);
       const categories: any = [];
       const prices: any = [];
       noDuplicates.forEach((e: any) => {
@@ -88,10 +99,20 @@ export class BarChartComponent implements OnInit {
         this.expensesInfo.push({ category: e.category, price: e.price });
       });
 
+      let dataToUse:any = ''
+
+      if(this.typeOfChart === 'prices'){
+        dataToUse=prices
+      } else{
+        this.typeOfChart === 'amount'
+        dataToUse=amountPerCategory
+
+      }
+
       this.barChartLabels = categories;
       this.barChartData = {
         labels: this.barChartLabels,
-        datasets: [{ data: prices, label: 'Expenses' }],
+        datasets: [{ data: dataToUse, label: 'Expenses' }],
       };
       this.barChartOptions = {
         backgroundColor: 'rgba(245, 109, 145,.8)',
@@ -99,7 +120,7 @@ export class BarChartComponent implements OnInit {
         scales: {
           x: {},
           y: {
-            min: 10,
+            min: 0,
           },
         },
         plugins: {

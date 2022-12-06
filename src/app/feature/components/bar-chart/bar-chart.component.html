@@ -1,5 +1,6 @@
 
 <div class="__bg container-fluid col-md-12">
+  <h4>{{title}}</h4>
   <div *ngIf="dataAvailable">
     <app-filter
     [currentMonth]="currentMonth[0]"
@@ -43,6 +44,4 @@
   </div>
 </div>
 </div>
-<!-- <ng-container *ngIf="expensesInfo.length > 0">
-<app-home-table [expensesInfo]="expensesInfo"></app-home-table>
-</ng-container> -->
+

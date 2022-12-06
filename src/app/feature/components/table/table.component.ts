@@ -20,7 +20,6 @@ export class TableComponent implements OnInit {
   async getUserExpenses(){
     (await this.expensesService.getExpensesFromUser()).subscribe((res:any)=>{
       this.expenses = res
-      console.log(res);
       this.dataAvailable = true
     })
   }
