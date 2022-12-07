@@ -126,10 +126,10 @@ export class BarChartComponent implements OnInit {
       this.barChartLabels = categories;
       this.barChartData = {
         labels: this.barChartLabels,
-        datasets: [{ data: dataToUse, label: 'Expenses' }],
+        datasets: [{ data: dataToUse, label: this.title }],
       };
       this.barChartOptions = {
-        backgroundColor: '#ff7bac',
+        backgroundColor: 'rgba(8, 89, 206,.8)',
         responsive: true,
         scales: {
           x: {},
@@ -146,7 +146,7 @@ export class BarChartComponent implements OnInit {
               label: function (tooltipItem) {
                 let index = tooltipItem.dataIndex;
                 let price = tooltipItem.dataset.data[index];
-                return '$' + price;
+                return '' + price;
               },
             },
           },

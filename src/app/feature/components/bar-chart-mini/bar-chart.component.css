@@ -10,3 +10,11 @@
   background-color: #2748a0;
   color: white;
 }
+
+
+.card {
+  margin-top: 1rem;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: .5rem;
+}

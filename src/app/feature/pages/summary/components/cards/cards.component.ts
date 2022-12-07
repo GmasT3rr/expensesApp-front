@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Months } from 'src/app/core/enums/months';
 import { ExpensesService } from 'src/app/core/services/expenses.service';
 
@@ -8,8 +8,10 @@ import { ExpensesService } from 'src/app/core/services/expenses.service';
   styleUrls: ['./cards.component.css'],
 })
 export class CardsComponent implements OnInit {
-  private allMonths: any = [];
-  private currentMonth: any;
+
+  public allMonths: any = [];
+  public currentMonth: any;
+  public selectedMonth:any = 'filter'
   private previousMonthExpenses: any = [];
   private currentMonthExpenses: any = [];
 
@@ -27,7 +29,6 @@ export class CardsComponent implements OnInit {
   public difference: any;
   public average: any;
 
-
   constructor(private expensesService: ExpensesService) {
     this.allMonths = Object.entries(Months);
   }
@@ -40,12 +41,16 @@ export class CardsComponent implements OnInit {
     this.getPreviousMonthsExpensesAverage()
   }
 
+
+
   getCurrentMonth() {
     const currentMonth = new Date().getMonth() + 1 + '';
     for (let index = 0; index < this.allMonths.length; index++) {
       const month = this.allMonths[index];
       if (month[1] === currentMonth) {
         this.currentMonth = month;
+        this.selectedMonth = this.currentMonth[1]
+
       }
     }
   }
@@ -53,7 +58,12 @@ export class CardsComponent implements OnInit {
   async getCurrentMonthExpenses() {
     (await this.expensesService.getExpensesFromUser()).subscribe((res: any) => {
       const currentMonth = res.filter((x: any) => {
-        return x.date.slice(5, -17) === this.currentMonth[1] + '';
+        if(this.selectedMonth === ''){
+          return res
+        }else{
+          return x.date.slice(5, -17) === this.selectedMonth + '';
+
+        }
       });
       this.currentMonthExpenses = currentMonth;
 
@@ -79,10 +89,14 @@ export class CardsComponent implements OnInit {
   async getPreviousMonthExpenses() {
     (await this.expensesService.getExpensesFromUser()).subscribe((res: any) => {
       const previousMonth = res.filter((x: any) => {
-        return x.date.slice(5, -17) === this.currentMonth[1] - 1 + '';
+        if(this.selectedMonth === ''){
+          return res
+        }else{
+          return x.date.slice(5, -17) === this.selectedMonth - 1 + '';
+
+        }
       });
       this.previousMonthExpenses = previousMonth;
-
       const counter: any = [];
       previousMonth.forEach((expense: any) => {
         counter.push(expense.category);
@@ -106,10 +120,20 @@ export class CardsComponent implements OnInit {
   async getPreviousMonthsAverage() {
     (await this.expensesService.getExpensesFromUser()).subscribe((res: any) => {
       const previousMonth = res.filter((x: any) => {
-        return x.date.slice(5, -17) === this.currentMonth[1] - 2 + '';
+        if(this.selectedMonth === ''){
+          return res
+        }else{
+          return x.date.slice(5, -17) === this.selectedMonth - 2 + '';
+
+        }
       });
       const currentMonth = res.filter((x: any) => {
-        return x.date.slice(5, -17) === this.currentMonth[1] - 1 + '';
+        if(this.selectedMonth === ''){
+          return res
+        }else{
+          return x.date.slice(5, -17) === this.selectedMonth - 1 + '';
+
+        }
       });
 
       const averagePrev: any = [];
@@ -132,10 +156,20 @@ export class CardsComponent implements OnInit {
   async getPreviousMonthsExpensesAverage() {
     (await this.expensesService.getExpensesFromUser()).subscribe((res: any) => {
       const previousMonth = res.filter((x: any) => {
-        return x.date.slice(5, -17) === this.currentMonth[1] - 2 + '';
+        if(this.selectedMonth === ''){
+          return res
+        }else{
+          return x.date.slice(5, -17) === this.selectedMonth - 2 + '';
+
+        }
       });
       const currentMonth = res.filter((x: any) => {
-        return x.date.slice(5, -17) === this.currentMonth[1] - 1 + '';
+        if(this.selectedMonth === ''){
+          return res
+        }else{
+          return x.date.slice(5, -17) === this.selectedMonth - 1 + '';
+
+        }
       });
 
       const counterCurrent: any = [];
@@ -169,7 +203,6 @@ export class CardsComponent implements OnInit {
       );
       this.expensesPreviousAverage = (totalCurrentExpenses + totalPreviousExpenses) / 2;
 
-      console.log(this.expensesPreviousAverage);
     });
   }
 
@@ -200,4 +233,18 @@ export class CardsComponent implements OnInit {
     this.expensesAverage = (this.totalCurrentExpenses + this.totalPreviousExpenses) / 2;
 
   }
+
+  selectMonth(month: any) {
+    console.log(month);
+    if (month === 'all' || null) {
+      this.selectedMonth = '';
+    } else {
+      this.selectedMonth = month
+    }
+     this.getCurrentMonthExpenses();
+     this.getPreviousMonthExpenses();
+     this.getPreviousMonthsAverage();
+     this.getPreviousMonthsExpensesAverage()
+
+    }
 }

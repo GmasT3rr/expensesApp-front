@@ -1,7 +1,25 @@
-<div class="container col-10">
-  <app-cards></app-cards>
-  <!--  -->
-      <app-my-expenses></app-my-expenses>
-  <!--  -->
-  <app-bar-chart-mini></app-bar-chart-mini>
+<div class="__bg">
+  <div class="container col-10">
+    <div>
+      <h1>{{ now }}</h1>
+    </div>
+    <app-cards></app-cards>
+    <!--  -->
+    <!-- <app-my-expenses></app-my-expenses> -->
+    <!--  -->
+    <div class="row">
+      <div class="col-md-6">
+        <app-bar-chart-mini
+          [title]="'Spent per category'"
+          [typeOfChart]="'prices'"
+        ></app-bar-chart-mini>
+      </div>
+      <div class="col-md-6">
+        <app-bar-chart-mini
+          [title]="'Expenses per category'"
+          [typeOfChart]="'ammount'"
+        ></app-bar-chart-mini>
+      </div>
+    </div>
+  </div>
 </div>
