@@ -1,0 +1,168 @@
+<!-- <div class="row __top">
+  <div class="row __top_info col-md-6">
+    <div class="col-xl-6">
+      <div class="card p-3 m-3">
+        <span class="__card_title">Total spent</span>
+        <div class="__card_info" *ngIf="difference <= 0; else Else">
+          <span class="__number_positve">${{difference}}</span>
+          <img src="assets\svgs\icons\arrow-down.svg" />
+          <span>(Last month)</span>
+        </div>
+        <ng-template #Else>
+          <div class="__card_info">
+            <span class="__number_negative">${{difference}}</span>
+            <img src="assets\svgs\icons\arrow-up.svg" />
+
+            <span>(Last month)</span>
+          </div>
+        </ng-template>
+        <h5>${{totalSpent}}</h5>
+      </div>
+    </div>
+          <div class="col-xl-6">
+      <div class="card p-3 m-3">
+        <span class="__card_title">Avg. spent</span>
+        <div class="__card_info">
+          <span class="__number_avg">${{average}}</span>
+          <img src="assets\svgs\icons\arrow-up-down.svg" />
+          <span> (Last month)</span>
+        </div>
+        <h5>${{totalSpent}}</h5>
+      </div>
+    </div>
+
+
+    <div class="col-xl-12">
+      <div class="card m-3">
+        <app-bar-chart-mini  [typeOfChart]="'prices'" [title]="'Spent in:'"
+        (spentThisMonth)="getTotalSpent($event)"
+        (spentPreviousMonth)="getTotalSpentPreviousMonth($event)"
+        ></app-bar-chart-mini>
+
+         <span class="__card_title">sometin</span>
+        <div class="__card_info">
+          <span class="__number">33</span>
+          <img src="assets\svgs\icons\arrow-up.svg" />
+          <span>(Last month)</span>
+        </div>
+        <h4>16</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row __top_info col-md-6">
+    <div class="col-xl-6">
+      <div class="card p-3 m-3">
+        <span class="__card_title">Total expenses</span>
+        <div class="__card_info" *ngIf="difference <= 0; else Else">
+          <span class="__number_positve">${{difference}}</span>
+          <img src="assets\svgs\icons\arrow-down.svg" />
+          <span>(Last month)</span>
+        </div>
+        <ng-template #Else>
+          <div class="__card_info">
+            <span class="__number_negative">${{difference}}</span>
+            <img src="assets\svgs\icons\arrow-up.svg" />
+
+            <span>(Last month)</span>
+          </div>
+        </ng-template>
+        <h5>${{totalSpent}}</h5>
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="card p-3 m-3">
+        <span class="__card_title">Avg. expenses</span>
+        <div class="__card_info" *ngIf="difference <= 0; else Else">
+          <span class="__number_positve">${{difference}}</span>
+          <img src="assets\svgs\icons\arrow-down.svg" />
+          <span>(Last month)</span>
+        </div>
+        <ng-template #Else>
+          <div class="__card_info">
+            <span class="__number_negative">${{difference}}</span>
+            <img src="assets\svgs\icons\arrow-up.svg" />
+
+            <span>(Last month)</span>
+          </div>
+        </ng-template>
+        <h5>${{totalSpent}}</h5>
+      </div>
+    </div>
+
+    <div class="col-xl-12">
+      <div class="card m-3">
+        <app-bar-chart-mini [typeOfChart]="'amount'" [title]="'Expenses in:'"
+        (spentThisMonth)="getTotalSpent($event)"></app-bar-chart-mini>
+         <span class="__card_title">sometin</span>
+        <div class="__card_info">
+          <span class="__number">33</span>
+          <img src="assets\svgs\icons\arrow-up.svg" />
+          <span>(Last month)</span>
+        </div>
+        <h4>16</h4>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="container">
+  <div class="row d-flex justify-content-between text-center">
+    <div class="__box">
+      <div class="col-lg-3 card __top_cards">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-7 my-1">
+            <div class="__total">$20000</div>
+            <div class="__description">Total spent</div>
+          </div>
+          <div class="col-lg-5 my-1">
+            <div class="__icon"><img src="assets\svgs\icons\cash.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="row d-flex justify-content-center text-center">
+  <div class="__box col-sm-6 col-lg-3">
+    <div class="col-12 card __top_cards">
+      <app-cards-info
+      [total]="'$'+spentCurrentMonth"
+      [description]="'Total spent'"
+      [icon]="'cash'"
+      [difference]="'$'+difference"
+      ></app-cards-info>
+    </div>
+  </div>
+  <div class="__box col-sm-6 col-lg-3">
+    <div class=" card __top_cards">
+      <app-cards-info
+      [total]="'$'+average"
+      [icon]="'arrow-up-down'"
+      [difference]="'$'+differenceInAverage"
+      [description]="'Avg. spent'"
+      ></app-cards-info>
+    </div>
+  </div>
+  <div class="__box col-sm-6  col-lg-3">
+    <div class=" card __top_cards">
+      <app-cards-info
+      [total]="totalCurrentExpenses"
+      [icon]="'check-list'"
+      [description]="'Total expenses'"
+      [difference]="differenceInExpenses"
+      ></app-cards-info>
+    </div>
+  </div>
+  <div class="__box col-sm-6  col-lg-3">
+    <div class=" card __top_cards">
+      <app-cards-info
+      [total]="expensesAverage"
+      [icon]="'cart'"
+      [description]="'Avg. expenses'"
+      [difference]="expensesPreviousAverage"
+
+      ></app-cards-info>
+    </div>
+  </div>
+
+</div>

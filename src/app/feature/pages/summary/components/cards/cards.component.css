@@ -1,0 +1,10 @@
+
+.__box{
+  margin-top: 1rem;
+}
+.__top_cards {
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: .5rem;
+}
+

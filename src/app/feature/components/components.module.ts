@@ -14,7 +14,7 @@ import { ModalNewExpenseComponent } from './modals/modal-new-expense/modal-new-e
 import { TableComponent } from './table/table.component';
 import { PipesModule } from 'src/app/core/pipes/pipes.module';
 import { TableFiltersComponent } from './dummy/table-filters/table-filters.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { BarChartComponent } from './bar-chart-mini/bar-chart.component';
 
 
 

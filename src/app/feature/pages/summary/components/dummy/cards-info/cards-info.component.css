@@ -1,0 +1,27 @@
+
+.__total {
+  color: #0859ce;
+  font-size: 1.5rem;
+}
+.__description{
+  margin-top: -7px;
+  color: grey;
+  font-size: .8rem;
+
+}
+.__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.__last_month{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.__diff_up{
+  color: red;
+}
+.__diff_down{
+  color: green;
+}

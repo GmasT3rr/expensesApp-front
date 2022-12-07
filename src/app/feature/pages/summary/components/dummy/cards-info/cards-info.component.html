@@ -1,0 +1,15 @@
+<div class="d-flex align-items-center">
+  <div class="col-7 my-1">
+    <div class="__total">{{ total }}</div>
+    <div class="__description">{{ description }}</div>
+    <div class="__last_month" >
+      <div [ngClass]="{'__diff_up':diff,'__diff_down':!diff}">{{ difference }}</div>
+      <div><img [src]="differenceIcon" /></div>
+    </div>
+  </div>
+  <div class="col-5 my-1">
+    <div class="__icon">
+      <img [src]="iconPath" />
+    </div>
+  </div>
+</div>

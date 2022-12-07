@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ChartConfiguration, ChartType, ChartData } from 'chart.js';
 import { Months } from 'src/app/core/enums/months';
 import { ExpensesService } from '../../../core/services/expenses.service';
@@ -9,58 +9,74 @@ import { ExpensesService } from '../../../core/services/expenses.service';
   styleUrls: ['./bar-chart.component.css'],
 })
 export class BarChartComponent implements OnInit {
-  @Input() title:any = ''
-  @Input() typeOfChart:any = ''
+  @Input() title: any = '';
+  @Input() typeOfChart: any = '';
+  @Output() spentThisMonth: any = new EventEmitter<any>();
+  @Output() spentPreviousMonth: any = new EventEmitter<any>();
+
+  private totalSpentThisMonth: any;
+  private totalSpentLastMonth: any;
   public dataAvailable = false;
   private selectedMonth = 'firstTime';
   public months: any = [];
-  public currentMonth:any
+  public currentMonth: any;
   public expensesInfo: any = [];
-
+  private previousMonthExpenses: any;
 
   constructor(private expensesService: ExpensesService) {
     this.months = Object.entries(Months);
   }
 
   ngOnInit() {
-    this.getCurrentMonth()
+    this.getCurrentMonth();
     this.getUserExpenses();
   }
+
+  // emitSpentPreviousMonth() {
+  //   this.spentPreviousMonth.emit(this.totalSpentLastMonth);
+  // }
+  // emitSpentThisMonth() {
+  //   this.spentThisMonth.emit(this.totalSpentThisMonth);
+  // }
 
   public barChartLabels!: string[];
   public barChartData!: ChartData<'bar'>;
   public barChartType: ChartType = 'bar';
   public barChartOptions: ChartConfiguration['options'] = {};
 
-  getCurrentMonth(){
-    const currentMonth = new Date().getMonth()+1+''
-    for (let index = 0; index < this.months.length; index++) {
-      const month = this.months[index];
-      if(month[1] === currentMonth){
-        this.currentMonth = month
-
-      }
-    }
-  }
+   getCurrentMonth() {
+     const currentMonth = new Date().getMonth() + 1 + '';
+     for (let index = 0; index < this.months.length; index++) {
+       const month = this.months[index];
+       if (month[1] === currentMonth) {
+         this.currentMonth = month;
+       }
+     }
+   }
 
   async getUserExpenses() {
     (await this.expensesService.getExpensesFromUser()).subscribe((res: any) => {
+      // const previousMonth = res.filter((x: any) => {
+      //   return x.date.slice(5, -17) === this.currentMonth[1] - 1 + '';
+      // });
+      // this.previousMonthExpenses = previousMonth;
+
       const filteredByMonth = res.filter((x: any) => {
-        if(this.selectedMonth===''||null){
+        if (this.selectedMonth === '' || null) {
           return res;
-        }
-        else {
-        if (this.selectedMonth === 'firstTime' || null) {
-          return x.date.slice(5, -17) === this.currentMonth[1];
         } else {
-          return x.date.slice(5, -17) === this.selectedMonth;
-        }}
+          if (this.selectedMonth === 'firstTime' || null) {
+            return x.date.slice(5, -17) === this.currentMonth[1];
+          } else {
+            return x.date.slice(5, -17) === this.selectedMonth;
+          }
+        }
       });
-       const counter:any =[]
-       filteredByMonth.forEach((expense:any) => {
-        counter.push(expense.category)
+      const counter: any = [];
+      filteredByMonth.forEach((expense: any) => {
+        counter.push(expense.category);
       });
-      const repeatedCategories = counter.reduce((prev:any, cur:any) => {
+      const repeatedCategories = counter.reduce((prev: any, cur: any) => {
         prev[cur] = (prev[cur] || 0) + 1;
         return prev;
       }, {});
@@ -89,8 +105,7 @@ export class BarChartComponent implements OnInit {
         []
       );
       // console.log('sin duplicados',noDuplicates);
-      const amountPerCategory:any = Object.values(repeatedCategories)
-      console.log(amountPerCategory);
+      const amountPerCategory: any = Object.values(repeatedCategories);
       const categories: any = [];
       const prices: any = [];
       noDuplicates.forEach((e: any) => {
@@ -99,14 +114,13 @@ export class BarChartComponent implements OnInit {
         this.expensesInfo.push({ category: e.category, price: e.price });
       });
 
-      let dataToUse:any = ''
+      let dataToUse: any = '';
 
-      if(this.typeOfChart === 'prices'){
-        dataToUse=prices
-      } else{
-        this.typeOfChart === 'amount'
-        dataToUse=amountPerCategory
-
+      if (this.typeOfChart === 'prices') {
+        dataToUse = prices;
+      } else {
+        this.typeOfChart === 'amount';
+        dataToUse = amountPerCategory;
       }
 
       this.barChartLabels = categories;
@@ -115,7 +129,7 @@ export class BarChartComponent implements OnInit {
         datasets: [{ data: dataToUse, label: 'Expenses' }],
       };
       this.barChartOptions = {
-        backgroundColor: 'rgba(245, 109, 145,.8)',
+        backgroundColor: '#ff7bac',
         responsive: true,
         scales: {
           x: {},
@@ -140,6 +154,7 @@ export class BarChartComponent implements OnInit {
       };
       if (res.length <= 0) this.dataAvailable = false;
       else this.dataAvailable = true;
+      // this.expenseSum();
     });
   }
 
@@ -154,6 +169,24 @@ export class BarChartComponent implements OnInit {
     this.getUserExpenses();
   }
 
+  // expenseSum() {
+  //   const thisMonth: any = [];
+  //   const previousMonth: any = [];
+  //   this.expensesInfo.forEach((expense: any) => {
+  //     thisMonth.push(expense.price);
+  //   });
+  //   let sum1 = thisMonth.reduce((a: any, b: any) => a + b, 0);
+  //   this.totalSpentThisMonth = sum1;
+
+  //   this.previousMonthExpenses.forEach((expense: any) => {
+  //     previousMonth.push(expense.price);
+  //   });
+  //   let sum2 = previousMonth.reduce((a: any, b: any) => a + b, 0);
+  //   this.totalSpentLastMonth = sum2;
+
+  //   this.emitSpentThisMonth();
+  //   this.emitSpentPreviousMonth();
+  // }
   // public barChartOptions: ChartConfiguration['options'] = {
   //   responsive: true,
   //   // We use these empty structures as placeholders for dynamic theming.

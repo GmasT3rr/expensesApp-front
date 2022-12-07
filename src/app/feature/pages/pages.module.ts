@@ -9,6 +9,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ChartsModule } from '../charts/charts.module';
 import { SummaryComponent } from './summary/summary.component';
+import { CardsComponent } from './summary/components/cards/cards.component';
+import { CardsInfoComponent } from './summary/components/dummy/cards-info/cards-info.component';
 
 
 
@@ -16,7 +18,9 @@ import { SummaryComponent } from './summary/summary.component';
   declarations: [
     HomeComponent,
     MyExpensesComponent,
-    SummaryComponent
+    SummaryComponent,
+    CardsComponent,
+    CardsInfoComponent
   ],
   imports: [
     CommonModule,
