@@ -61,10 +61,8 @@ export class AuthService {
     if(localStorage.getItem('x-access-token') != null || ''){
       const expiresIn = localStorage.getItem('expiresIn') ||''
       if(Number(new Date()).toString()  >= expiresIn){
-        setTimeout(() => {
           alert('Se ha agotado el tiempo de su sesion, vuelva a ingresar')
           this.signOut()
-        }, 1000);
       }
     }
   }

@@ -1,8 +1,6 @@
-<nav class="nav navbar flex-column navbar-expand-md">
+<nav class="nav navbar flex-column navbar-expand-xl">
   <div class="__brand p-2 col-12">
-    <div>
-      <a class="nav-link __logo"><img src="assets\svgs\piggy.png" alt="" /></a>
-    </div>
+    <div class="__logo">Expenses App</div>
     <div class="d-flex align-items-center">
       <button
         class="navbar-toggler"
@@ -19,36 +17,21 @@
   </div>
   <div class="collapse navbar-collapse flex-column" id="navbarNav">
     <div class="__item_menu my-2">
-      <a class="nav-link" routerLink="/home">
-        <img src="assets\svgs\icons\home.svg" alt="" />
-      </a>
-      <span>Home</span>
+      <div routerLink="/home">Home</div>
     </div>
     <div class="__item_menu my-2">
-      <a class="nav-link" routerLink="main/my-expenses"
-        ><img src="assets\svgs\icons\list.svg" alt="" />
-      </a>
-      <span>Expenses</span>
+      <div routerLink="main/my-expenses">Expenses</div>
     </div>
 
     <div class="__item_menu my-2">
-      <a class="nav-link" routerLink="main/summary"
-        ><img src="assets\svgs\icons\check-list.svg" alt="" />
-      </a>
-      <span>Summary</span>
+      <div routerLink="main/summary">Summary</div>
     </div>
 
     <div class="__signOut_collapse __item_menu my-2">
-      <a class="nav-link" (click)="signOut()"
-        ><img src="assets\svgs\icons\logout.svg" alt="" />
-      </a>
-      <span>Log out</span>
+      <div (click)="signOut()">Log out</div>
     </div>
   </div>
   <div class="__signOut">
-    <a class="nav-link " (click)="signOut()"
-      ><img src="assets\svgs\icons\logout.svg" alt=""
-    /></a>
-    <span>Log out</span>
+    <div (click)="signOut()">Log out</div>
   </div>
 </nav>
