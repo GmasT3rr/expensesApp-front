@@ -3,6 +3,7 @@
   <!-- <h4>{{title}}</h4> -->
   <div *ngIf="dataAvailable">
     <app-filter
+    *ngIf="!isInSummary"
     [currentMonth]="currentMonth[0]"
     [months]="months"
     (selectedMonth)="selectMonth($event)"

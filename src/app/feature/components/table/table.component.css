@@ -1,8 +1,17 @@
 
-
+.__filter{
+  color: red;
+}
 .__t_head{
-  color: #2748a0;
+  color: white;
+  background-color: rgba(8, 89, 206,.75);
 }
 
-
-
+.__top_cards {
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: .5rem;
+}
+.__pagination{
+  cursor: pointer;
+}

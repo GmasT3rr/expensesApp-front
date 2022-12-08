@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-table-filters',
@@ -7,19 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TableFiltersComponent implements OnInit {
 
-  public filtrarPor:any
-  @Input() btnStylesRef:any = ''
+  public filterBy:any = 'None'
   @Input() btnName:any = ''
   @Input() btnIcon:any = ''
+  @Input() title:any = ''
+  @Output() emitFilters = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
   aplicarFiltro(filtro: string) {
-    this.filtrarPor = filtro;
-    console.log(filtro);
-
+    this.filterBy = filtro;
+    this.emitFilters.emit(filtro)
   }
 
 }

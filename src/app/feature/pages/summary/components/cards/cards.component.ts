@@ -235,7 +235,7 @@ export class CardsComponent implements OnInit {
   }
 
   selectMonth(month: any) {
-    console.log(month);
+    this.expensesService.expense.emit(month)
     if (month === 'all' || null) {
       this.selectedMonth = '';
     } else {

@@ -14,14 +14,13 @@ export class BarChartComponent implements OnInit {
   @Output() spentThisMonth: any = new EventEmitter<any>();
   @Output() spentPreviousMonth: any = new EventEmitter<any>();
 
-  private totalSpentThisMonth: any;
-  private totalSpentLastMonth: any;
+  public isInSummary:boolean = true
+
   public dataAvailable = false;
   private selectedMonth = 'firstTime';
   public months: any = [];
   public currentMonth: any;
   public expensesInfo: any = [];
-  private previousMonthExpenses: any;
 
   constructor(private expensesService: ExpensesService) {
     this.months = Object.entries(Months);
@@ -30,6 +29,7 @@ export class BarChartComponent implements OnInit {
   ngOnInit() {
     this.getCurrentMonth();
     this.getUserExpenses();
+    this.getGlobalFilter()
   }
 
   // emitSpentPreviousMonth() {
@@ -54,6 +54,13 @@ export class BarChartComponent implements OnInit {
      }
    }
 
+   getGlobalFilter(){
+    this.expensesService.expense.subscribe((res:any)=>{
+      this.selectedMonth = res
+      this.getUserExpenses()
+    })
+   }
+
   async getUserExpenses() {
     (await this.expensesService.getExpensesFromUser()).subscribe((res: any) => {
       // const previousMonth = res.filter((x: any) => {
@@ -62,7 +69,8 @@ export class BarChartComponent implements OnInit {
       // this.previousMonthExpenses = previousMonth;
 
       const filteredByMonth = res.filter((x: any) => {
-        if (this.selectedMonth === '' || null) {
+
+        if (this.selectedMonth === '' || null || this.selectedMonth === 'all') {
           return res;
         } else {
           if (this.selectedMonth === 'firstTime' || null) {
