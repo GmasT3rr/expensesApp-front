@@ -16,7 +16,7 @@ export class TableComponent implements OnInit {
   public totalPages = 0
   public currentPage = 1
   public offset = 0
-  public limit = 10
+  @Input() limit = 8
   private userExpensesLength = 0
 
   constructor(private expensesService:ExpensesService,private router:Router) { }
@@ -72,7 +72,7 @@ export class TableComponent implements OnInit {
   }
 
   getPaginationNumber(){
-    let div = this.userExpensesLength / 10
+    let div = this.userExpensesLength / this.limit
     this.totalPages = Math.ceil(div)
   }
 

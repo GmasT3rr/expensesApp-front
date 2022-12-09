@@ -9,6 +9,11 @@
   align-items: center;
   display: flex;
 }
+.navbar-collapse{
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+}
 
 .__logo {
   height: 56px;
@@ -22,6 +27,10 @@
   top: 40%; */
   color: white;
   cursor: pointer;
+  text-align: center;
+  padding: inherit;
+
+
 }
 .__signOut {
   color: white;

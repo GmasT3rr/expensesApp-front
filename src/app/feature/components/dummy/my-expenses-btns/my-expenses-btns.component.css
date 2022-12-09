@@ -1,7 +1,11 @@
 .__create_new_expense{
-  background-color: #2748a0;
-  color: #f9faf5;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #0859ce;
+  color: white;
   font-size: 1.25rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+
 }
 
 .__create_new_expense:hover {

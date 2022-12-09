@@ -1,11 +1,11 @@
 <div class="__bg my-5">
-  <div class="row d-flex justify-content-center text-center">
+  <div class="d-flex justify-content-center text-center">
     <!--  -->
-    <div class="col-5" *ngIf="!isInSummary">
+    <div class="col-sm-4 col-xl-3" *ngIf="!isInSummary">
       <app-my-expenses-btns
         data-bs-toggle="modal"
         data-bs-target="#createExpense"
-        [btnName]="'Create new'"
+        [btnName]="'Create new expense'"
         [btnIcon]="'bi bi-plus-square-fill'"
         [btnStylesRef]="'__create_new_expense'"
       ></app-my-expenses-btns>

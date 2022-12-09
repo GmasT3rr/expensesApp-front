@@ -1,6 +1,7 @@
 <nav class="nav navbar flex-column navbar-expand-xl">
   <div class="__brand p-2 col-12">
-    <div class="__logo">Expenses App</div>
+    <div class="__logo">Expenses app</div>
+
     <div class="d-flex align-items-center">
       <button
         class="navbar-toggler"
@@ -15,20 +16,20 @@
       </button>
     </div>
   </div>
-  <div class="collapse navbar-collapse flex-column" id="navbarNav">
+  <div class="collapse navbar-collapse flex-column " id="navbarNav">
     <div class="__item_menu my-2">
-      <div routerLink="/home">Home</div>
+      <div routerLink="/home"><i class="bi bi-house"></i> Home</div>
     </div>
     <div class="__item_menu my-2">
-      <div routerLink="main/my-expenses">Expenses</div>
+      <div routerLink="main/my-expenses"><i class="bi bi-wallet2"></i> Expenses</div>
     </div>
 
     <div class="__item_menu my-2">
-      <div routerLink="main/summary">Summary</div>
+      <div routerLink="main/summary"><i class="bi bi-receipt"></i> Summary</div>
     </div>
 
     <div class="__signOut_collapse __item_menu my-2">
-      <div (click)="signOut()">Log out</div>
+      <div (click)="signOut()"><i class="bi bi-1-circle"></i>Log out</div>
     </div>
   </div>
   <div class="__signOut my-3">
