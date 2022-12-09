@@ -9,7 +9,7 @@ import { ExpensesService } from '../../../core/services/expenses.service';
 })
 export class TableComponent implements OnInit {
 
-  public filterBy:any = 'None'
+  public filterBy:any = 'Most recent'
   public dataAvailable = false
   public userExpenses:any[] = []
   public isInSummary:boolean = false

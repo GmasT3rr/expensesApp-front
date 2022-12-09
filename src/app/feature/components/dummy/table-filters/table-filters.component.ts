@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TableFiltersComponent implements OnInit {
 
-  public filterBy:any = 'None'
+  public filterBy:any = 'Most recent'
   @Input() btnName:any = ''
   @Input() btnIcon:any = ''
   @Input() title:any = ''
