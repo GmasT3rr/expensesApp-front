@@ -15,6 +15,7 @@ import { TableComponent } from './table/table.component';
 import { PipesModule } from 'src/app/core/pipes/pipes.module';
 import { TableFiltersComponent } from './dummy/table-filters/table-filters.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { ModalTableComponent } from './dummy/modal-table/modal-table.component';
 
 
 
@@ -33,6 +34,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     TableComponent,
     TableFiltersComponent,
     BarChartComponent,
+    ModalTableComponent,
 
   ],
   imports: [

@@ -1,0 +1,29 @@
+<div class="table-responsive card">
+  <table class="table">
+    <thead>
+      <tr class="__t_head">
+        <th>Name</th>
+        <th>Category</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>
+          {{ expense.name }}
+        </td>
+        <td>
+          {{ expense.category }}
+        </td>
+        <td class="text-center" style="color: #0859ce">
+          ${{ expense.price }}
+        </td>
+        <td class="text-center">
+          {{ expense.date | slice : 0 : 10 }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -17,10 +17,10 @@ export class ModalUpdateExpenseComponent implements OnInit {
 
   constructor(private expensesService:ExpensesService, private categoriesService:CategoriesService) {
     this.updateExpenseForm = new FormGroup({
-      name: new FormControl('',[Validators.required,Validators.maxLength(30)]),
-      date: new FormControl('',[Validators.required]),
-      category: new FormControl('',[Validators.required]),
-      price: new FormControl('',[Validators.required]),
+      name: new FormControl('',[Validators.maxLength(30)]),
+      date: new FormControl(''),
+      category: new FormControl(''),
+      price: new FormControl(''),
       imgUrl: new FormControl(''),
     })
   }
@@ -68,11 +68,14 @@ export class ModalUpdateExpenseComponent implements OnInit {
      const newExpense:Expense = {
        name,price,category,imgUrl,date, userID
      };
-    //  console.log(newExpense);
+      // console.log(newExpense);
        (await this.expensesService.updateExpenseById(newExpense,id)).subscribe((res:any)=>{
         console.log(res);
        })
-    // console.log('form:',this.newExpenseForm.value);
-    window.location.reload();
+    // console.log('form:',this.updateExpenseForm.value);
+     window.location.reload();
   }
+
+  get invalidName(){return this.updateExpenseForm.get('name')?.invalid && this.updateExpenseForm.get('name')?.touched }
+
 }

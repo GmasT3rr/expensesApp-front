@@ -32,21 +32,31 @@
                 {{ category.category }}
               </option>
             </select>
-            <div class="__invalid_input" *ngIf="invalidCategory"><img src="assets\svgs\icons\bookmark-x.svg" alt=""> <span>Must select a category</span></div>
+            <div class="__invalid_input" *ngIf="invalidCategory">
+              <img src="assets\svgs\icons\bookmark-x.svg" alt="" />
+              <span>Must select a category</span>
+            </div>
             <input
-            class="form-control"
+              class="form-control"
               type="number"
               formControlName="price"
               placeholder="Enter the price $"
             />
-            <div class="__invalid_input" *ngIf="invalidPrice"><img src="assets\svgs\icons\bookmark-x.svg" alt=""><span>Must enter a price</span></div>
+            <div class="__invalid_input" *ngIf="invalidPrice">
+              <img src="assets\svgs\icons\bookmark-x.svg" alt="" /><span
+                >Must enter a price</span
+              >
+            </div>
             <input
-            class="form-control"
+              class="form-control"
               type="text"
               formControlName="name"
               placeholder="Enter the name"
             />
-            <div class="__invalid_input" *ngIf="invalidName"><img src="assets\svgs\icons\bookmark-x.svg" alt=""> <span>Invalid name</span></div>
+            <div class="__invalid_input" *ngIf="invalidName">
+              <img src="assets\svgs\icons\bookmark-x.svg" alt="" />
+              <span>Invalid name</span>
+            </div>
 
             <input
               class="form-control"
@@ -54,18 +64,25 @@
               formControlName="date"
               placeholder="Enter the date"
             />
-            <div class="__invalid_input" *ngIf="invalidDate"><img src="assets\svgs\icons\bookmark-x.svg" alt=""><span>Must enter a date</span></div>
+            <div class="__invalid_input" *ngIf="invalidDate">
+              <img src="assets\svgs\icons\bookmark-x.svg" alt="" /><span
+                >Must enter a date</span
+              >
+            </div>
           </div>
         </form>
       </div>
-      <div class="modal-footer d-flex justify-content-between ">
-        <button type="button" class="__btn_cancel"  data-bs-dismiss="modal">
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="__btn_cancel" data-bs-dismiss="modal">
           Cancel
         </button>
         <button
           [disabled]="newExpenseForm.invalid"
           type="button"
-          [ngClass]="{'__btn_create':!newExpenseForm.invalid, '__btn_create_invalid':newExpenseForm.invalid}"
+          [ngClass]="{
+            __btn_create: !newExpenseForm.invalid,
+            __btn_create_invalid: newExpenseForm.invalid
+          }"
           data-bs-dismiss="modal"
           (click)="createNewExpense()"
         >

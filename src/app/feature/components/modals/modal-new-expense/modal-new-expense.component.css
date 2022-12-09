@@ -8,7 +8,6 @@ select {
 }
 .modal-title{
  color: white;
-
 }
 .modal-footer{
   height: 5rem;
@@ -38,14 +37,9 @@ select {
   border-radius: 10px;
   padding: 10px;
   color: #f9faf5;
-  font-weight: 600;
   transition: all 300ms;
 }
-.__btn_create:hover,.__btn_cancel:hover {
-  padding: .8rem;
-  transition: all 300ms;
-  font-weight: 700;
-}
+
 .__invalid_input{
   display: flex;
   align-items: center;
