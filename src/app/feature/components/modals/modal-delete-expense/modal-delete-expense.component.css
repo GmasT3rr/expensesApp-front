@@ -1,12 +1,22 @@
+.modal-header{
+  background-color: #0859ce;
+}
+.modal-title{
+ color: white;
+}
+.__btn_cancel,
+.__btn_delete {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: #f9faf5;
+  transition: all 300ms;
 
-.bi-x-lg::before{
-  display: none;
 }
-.__btn_cancel{
-  background-color: #f56d91;
-  color: #f9faf5;
+.__btn_delete {
+  background-color: #0859ce;
 }
-.__btn_delete{
-  background-color: #2748a0;
-  color: #f9faf5;
+.__btn_cancel {
+  background-color: #ff0080;
 }
