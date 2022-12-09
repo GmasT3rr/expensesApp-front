@@ -114,6 +114,7 @@ export class CardsComponent implements OnInit {
       this.totalPreviousExpenses = totalExpenses
 
       this.sumPreviousMonthExpenses();
+
     });
   }
 

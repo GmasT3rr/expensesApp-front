@@ -16,10 +16,10 @@
   border-radius: 20px;
 }
 .__login{
-  box-shadow: 10px 10px 39px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
-  background-color: #F9FaF5;
-  color: #F9FaF5;
+  background-color: white;
+  color: white;
 }
 .__loginImg img {
   width: 80%;
@@ -34,24 +34,36 @@
   border-radius: 15px;
 }
 .__loginForm  {
-  background-color: #2748a0;
+  background-color: #0859ce;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 .__person img{
   color: #F9FaF5 !important;
 }
-.__btn_singIn,.__btn_singIn input {
-  border: none;
-  background-color: #F9FaF5;
-  color: #2748a0;
+.__btn_signIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
 }
-.__btn_singIn:hover {
-  border: none;
-  background-color: #F9FaF5;
-  color: #2748a0;
-}
+.__btn_signIn input {
+  cursor: pointer;
 
+  border: none;
+  border-radius: 10px;
+  transition: all 300ms;
+  padding: 10px;
+  background-color: white;
+  color: #0859ce;
+  font-weight: 600;
+}
+.__btn_signIn input:hover {
+  font-size: 1.25rem;
+  transition: all 300ms;
+  font-weight: 700;
+
+}
 
 
 @media screen and (max-width: 767px) {

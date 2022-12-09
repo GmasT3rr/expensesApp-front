@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChartConfiguration, ChartType, ChartData } from 'chart.js';
 import { Months } from 'src/app/core/enums/months';
 import { ExpensesService } from '../../../core/services/expenses.service';
@@ -14,22 +15,32 @@ export class BarChartComponent implements OnInit {
   @Output() spentThisMonth: any = new EventEmitter<any>();
   @Output() spentPreviousMonth: any = new EventEmitter<any>();
 
-  public isInSummary:boolean = true
+  public isInSummary:boolean = false
 
   public dataAvailable = false;
   private selectedMonth = 'firstTime';
   public months: any = [];
   public currentMonth: any;
   public expensesInfo: any = [];
+  public userExpenses:any[] = []
 
-  constructor(private expensesService: ExpensesService) {
+  constructor(private expensesService: ExpensesService, private router:Router) {
     this.months = Object.entries(Months);
   }
 
   ngOnInit() {
     this.getCurrentMonth();
     this.getUserExpenses();
-    this.getGlobalFilter()
+    this.getGlobalFilter();
+    this.checkPath()
+
+  }
+
+  checkPath(){
+    const ruta = this.router.url
+    if(ruta.includes('summary')){
+      this.isInSummary = true
+    } else this.isInSummary = false
   }
 
   // emitSpentPreviousMonth() {
@@ -80,6 +91,7 @@ export class BarChartComponent implements OnInit {
           }
         }
       });
+      this.userExpenses = filteredByMonth
       const counter: any = [];
       filteredByMonth.forEach((expense: any) => {
         counter.push(expense.category);

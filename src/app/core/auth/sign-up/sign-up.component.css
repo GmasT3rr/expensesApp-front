@@ -34,22 +34,35 @@
   border-radius: 15px;
 }
 .__registerForm  {
-  background-color: #2748a0;
+  background-color: #0859ce;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 .__person img{
   color: #F9FaF5 !important;
 }
-.__btn_singUp,.__btn_singUp input {
-  border: none;
-  background-color: #F9FaF5;
-  color: #2748a0;
+.__btn_signUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+
 }
-.__btn_singUp:hover {
+.__btn_signUp input {
+  cursor: pointer;
   border: none;
-  background-color: #F9FaF5;
-  color: #2748a0;
+  border-radius: 10px;
+  transition: all 300ms;
+  padding: 10px;
+  background-color: white;
+  color: #0859ce;
+  font-weight: 600;
+}
+.__btn_signUp input:hover {
+  font-size: 1.25rem;
+  transition: all 300ms;
+  font-weight: 700;
+
 }
 
 

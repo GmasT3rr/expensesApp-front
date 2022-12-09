@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ExpensesService } from '../../../core/services/expenses.service';
 
 @Component({
@@ -11,13 +12,14 @@ export class TableComponent implements OnInit {
   public filterBy:any = 'None'
   public dataAvailable = false
   public userExpenses:any[] = []
-  public isInSummary:boolean = true
+  public isInSummary:boolean = false
   public totalPages = 0
   public currentPage = 1
   public offset = 0
   public limit = 10
   private userExpensesLength = 0
-  constructor(private expensesService:ExpensesService) { }
+
+  constructor(private expensesService:ExpensesService,private router:Router) { }
 
   //Añadir el filtro que otorga summary en general mediante el servicio de emiter
   //Creo que por el momento no lo quiero poner
@@ -25,6 +27,13 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   this.getUserExpenses()
   // this.getGlobalFilter()
+  this.checkPath()
+  }
+  checkPath(){
+    const ruta = this.router.url
+    if(ruta.includes('summary')){
+      this.isInSummary = true
+    } else this.isInSummary = false
   }
 
   // getGlobalFilter(){
