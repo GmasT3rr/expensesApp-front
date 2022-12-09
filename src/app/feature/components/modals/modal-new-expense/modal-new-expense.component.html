@@ -59,13 +59,13 @@
         </form>
       </div>
       <div class="modal-footer d-flex justify-content-between ">
-        <button type="button" class="__btn_cancel" data-bs-dismiss="modal">
+        <button type="button" class="__btn_cancel"  data-bs-dismiss="modal">
           Cancel
         </button>
         <button
           [disabled]="newExpenseForm.invalid"
           type="button"
-          class=" __btn_create"
+          [ngClass]="{'__btn_create':!newExpenseForm.invalid, '__btn_create_invalid':newExpenseForm.invalid}"
           data-bs-dismiss="modal"
           (click)="createNewExpense()"
         >
