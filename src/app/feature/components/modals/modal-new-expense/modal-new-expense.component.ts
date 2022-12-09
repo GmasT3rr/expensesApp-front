@@ -52,4 +52,9 @@ export class ModalNewExpenseComponent implements OnInit {
     // console.log('form:',this.newExpenseForm.value);
     window.location.reload();
   }
+
+  get invalidPrice(){return this.newExpenseForm.get('price')?.invalid && this.newExpenseForm.get('price')?.touched }
+  get invalidName(){return this.newExpenseForm.get('name')?.invalid && this.newExpenseForm.get('name')?.touched }
+  get invalidDate(){return this.newExpenseForm.get('date')?.invalid && this.newExpenseForm.get('date')?.touched }
+  get invalidCategory(){return this.newExpenseForm.get('category')?.invalid && this.newExpenseForm.get('category')?.touched }
 }

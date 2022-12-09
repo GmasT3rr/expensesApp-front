@@ -14,49 +14,58 @@
         <h4 class="modal-title" id="createExpenseLabel">
           Do you want to create a new expense?
         </h4>
-        <button
+        <!-- <button
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
         >
           <i class="bi bi-x-lg"></i>
-        </button>
+        </button> -->
       </div>
       <div class="modal-body">
         <form [formGroup]="newExpenseForm">
           <div class="row d-flex justify-content-center">
-            <select formControlName="category">
+            <select class="form-select" formControlName="category">
               <option value="" disabled selected>Select a category</option>
               <option *ngFor="let category of categories">
                 {{ category.category }}
               </option>
             </select>
+            <div class="__invalid_input" *ngIf="invalidCategory"><img src="assets\svgs\icons\bookmark-x.svg" alt=""> <span>Must select a category</span></div>
             <input
+            class="form-control"
               type="number"
               formControlName="price"
               placeholder="Enter the price $"
             />
+            <div class="__invalid_input" *ngIf="invalidPrice"><img src="assets\svgs\icons\bookmark-x.svg" alt=""><span>Must enter a price</span></div>
             <input
+            class="form-control"
               type="text"
               formControlName="name"
               placeholder="Enter the name"
             />
+            <div class="__invalid_input" *ngIf="invalidName"><img src="assets\svgs\icons\bookmark-x.svg" alt=""> <span>Invalid name</span></div>
+
             <input
+              class="form-control"
               type="date"
               formControlName="date"
               placeholder="Enter the date"
             />
+            <div class="__invalid_input" *ngIf="invalidDate"><img src="assets\svgs\icons\bookmark-x.svg" alt=""><span>Must enter a date</span></div>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn __btn_cancel" data-bs-dismiss="modal">
+      <div class="modal-footer d-flex justify-content-between ">
+        <button type="button" class="__btn_cancel" data-bs-dismiss="modal">
           Cancel
         </button>
         <button
+          [disabled]="newExpenseForm.invalid"
           type="button"
-          class="btn __btn_create"
+          class=" __btn_create"
           data-bs-dismiss="modal"
           (click)="createNewExpense()"
         >
