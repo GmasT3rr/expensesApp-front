@@ -9,10 +9,11 @@
   align-items: center;
   display: flex;
 }
-.navbar-collapse{
+.navbar-collapse {
   display: flex;
-  align-items: flex-start;
-  padding: 10px;
+  align-items: center;
+  width: 100%;
+
 }
 
 .__logo {
@@ -23,17 +24,40 @@
   color: white;
 }
 .__item_menu {
-  /* position: relative;
-  top: 40%; */
   color: white;
   cursor: pointer;
   text-align: center;
-  padding: inherit;
-
+  width: 100%;
+}
+.__item_menu div{
+  color: white;
+  transition: all 300ms;
 
 }
+.__item_menu div:hover, i:hover {
+  color:  #0859ce;
+  transition: all 300ms;
+  font-size: 1.2rem;
+  padding: 3px;
+  background-color: #fafafa;
+}
 .__signOut {
+  width: 100%;
+  cursor: pointer;
   color: white;
+}
+.__signOut div {
+  transition: all 300ms;
+  margin-bottom: 20px;
+}
+.__signOut div:hover, i:hover {
+  color:  #0859ce;
+  transition: all 300ms;
+  font-size: 1.2rem;
+  padding: 3px;
+  margin-bottom: 15px;
+
+  background-color: #fafafa;
 }
 .__signOut_collapse {
   display: none;
