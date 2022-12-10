@@ -53,16 +53,16 @@
         >
           <tr>
             <td>
-              {{ expense.name }}
+              {{ expense?.name }}
             </td>
             <td>
-              {{ expense.category }}
+              {{ expense?.category }}
             </td>
             <td class="text-center" style="color: #0859ce">
-              ${{ expense.price }}
+              ${{ expense?.price }}
             </td>
             <td class="text-center">
-              {{ expense.date | slice : 0 : 10 }}
+              {{ expense?.date | slice : 0 : 10 }}
             </td>
             <td class="text-center" *ngIf="!isInSummary">
               <i

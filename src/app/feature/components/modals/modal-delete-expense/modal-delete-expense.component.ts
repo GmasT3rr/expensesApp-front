@@ -35,5 +35,8 @@ export class ModalDeleteExpenseComponent implements OnInit {
       window.location.reload();
 
   }
+  refresh(){
+    window.location.reload()
+  }
 
 }

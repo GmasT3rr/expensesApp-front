@@ -25,7 +25,7 @@
         <app-modal-table [expense]="expense"></app-modal-table>
     </div>
       <div class="modal-footer">
-        <button type="button" class="__btn_cancel" data-bs-dismiss="modal">
+        <button type="button" class="__btn_cancel" data-bs-dismiss="modal" (click)="refresh()">
           Cancel
         </button>
         <button

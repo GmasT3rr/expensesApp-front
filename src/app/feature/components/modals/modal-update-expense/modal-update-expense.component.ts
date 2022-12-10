@@ -75,7 +75,9 @@ export class ModalUpdateExpenseComponent implements OnInit {
     // console.log('form:',this.updateExpenseForm.value);
      window.location.reload();
   }
-
+  refresh(){
+    window.location.reload()
+  }
   get invalidName(){return this.updateExpenseForm.get('name')?.invalid && this.updateExpenseForm.get('name')?.touched }
 
 }
