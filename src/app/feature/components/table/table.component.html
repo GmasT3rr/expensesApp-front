@@ -15,9 +15,9 @@
   <div class="d-flex justify-content-around">
     <div *ngIf="dataAvailable" class="table-responsive col-12 card __top_cards">
       <app-table-filters
-        [btnName]="'Filter'"
+        [btnName]="'Order by'"
         [btnIcon]="'bi bi-filter-left'"
-        [title]="'All dates'"
+        [title]="filterDate"
         (emitFilters)="aplicarFiltro($event)"
       ></app-table-filters>
       <table class="table">

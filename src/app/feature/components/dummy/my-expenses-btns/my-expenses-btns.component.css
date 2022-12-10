@@ -5,7 +5,7 @@
   color: white;
   font-size: 1.25rem;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-
+  cursor: pointer;
 }
 
 .__create_new_expense:hover {

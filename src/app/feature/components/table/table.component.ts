@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Months } from 'src/app/core/enums/months';
 import { ExpensesService } from '../../../core/services/expenses.service';
 
 @Component({
@@ -18,8 +19,15 @@ export class TableComponent implements OnInit {
   public offset = 0
   @Input() limit = 8
   private userExpensesLength = 0
+  public selectedMonth:any = 'firstTime'
+  public currentMonth:any = ''
+  public months:any
+  public filterDate:any = ''
 
-  constructor(private expensesService:ExpensesService,private router:Router) { }
+  constructor(private expensesService:ExpensesService,private router:Router) {
+    this.months = Object.entries(Months);
+
+   }
 
   //Añadir el filtro que otorga summary en general mediante el servicio de emiter
   //Creo que por el momento no lo quiero poner
@@ -28,6 +36,8 @@ export class TableComponent implements OnInit {
   this.getUserExpenses()
   // this.getGlobalFilter()
   this.checkPath()
+  this.getCurrentMonth()
+  this.getGlobalFilter();
   }
   checkPath(){
     const ruta = this.router.url
@@ -35,33 +45,64 @@ export class TableComponent implements OnInit {
       this.isInSummary = true
     } else this.isInSummary = false
   }
+  getGlobalFilter(){
+    this.expensesService.expense.subscribe((res:any)=>{
+      this.selectedMonth = res
+      this.getUserExpenses()
+      for (let index = 0; index < this.months.length; index++) {
+        const month = this.months[index];
+        if (month[1] === this.selectedMonth) {
+          this.filterDate = month[0]
+        }
+      }
+    })
+   }
 
-  // getGlobalFilter(){
-  //   this.expensesService.expense.subscribe((res:any)=>console.log(res))
+  getCurrentMonth() {
+    const currentMonth = new Date().getMonth() + 1 + '';
+    for (let index = 0; index < this.months.length; index++) {
+      const month = this.months[index];
+      if (month[1] === currentMonth && month[1] != this.selectedMonth) {
+        this.currentMonth = month;
+        this.filterDate = month[0]
+      }
+    }
+  }
 
-  // }
 
 
   async getUserExpenses(){
     (await this.expensesService.getExpensesFromUser()).subscribe((res:any)=>{
-      this.userExpensesLength = res.length
+      const filteredByMonth = res.filter((x: any) => {
+        if (this.selectedMonth === '' || null || this.selectedMonth === 'all') {
+          return res;
+        } else {
+          if (this.selectedMonth === 'firstTime' || null) {
+            return x.date.slice(5, -17) === this.currentMonth[1];
+          } else {
+            return x.date.slice(5, -17) === this.selectedMonth;
+          }
+        }
+      });
+
+      this.userExpensesLength = filteredByMonth.length
         switch (this.filterBy) {
           case 'None':
-            this.userExpenses = res
+            this.userExpenses = filteredByMonth
             break;
           case 'Max price':
-            this.userExpenses = res.sort((a:any,b:any)=>b.price - a.price)
+            this.userExpenses = filteredByMonth.sort((a:any,b:any)=>b.price - a.price)
 
             break;
           case 'Min price':
-            this.userExpenses = res.sort((a:any,b:any)=>a.price - b.price)
+            this.userExpenses = filteredByMonth.sort((a:any,b:any)=>a.price - b.price)
             break;
           case 'Most recent':
-            this.userExpenses = res.sort((a:any,b:any)=>new Date(b.date).getTime()- new Date(a.date).getTime())
+            this.userExpenses = filteredByMonth.sort((a:any,b:any)=>new Date(b.date).getTime()- new Date(a.date).getTime())
 
             break;
           case 'Least recent':
-            this.userExpenses = res.sort((a:any,b:any)=>new Date(a.date).getTime()- new Date(b.date).getTime())
+            this.userExpenses = filteredByMonth.sort((a:any,b:any)=>new Date(a.date).getTime()- new Date(b.date).getTime())
             break;
           default:
             break;

@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ExpensesService {
   @Output() expense:EventEmitter<any> = new EventEmitter();
+  @Output() filter:EventEmitter<any> = new EventEmitter();
 
   private URL = environment.config.API_URL
 
