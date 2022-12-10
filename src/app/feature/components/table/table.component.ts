@@ -145,5 +145,13 @@ export class TableComponent implements OnInit {
     this.userExpenses = [];
     this.getUserExpenses();
   }
+  selectMonth(month: any) {
+    this.expensesService.expense.emit(month)
+    if (month === 'all' || null) {
+      this.selectedMonth = '';
+    } else {
+      this.selectedMonth = month
+    }
 
+    }
 }

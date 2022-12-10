@@ -1,7 +1,8 @@
 <div class="__bg">
   <div class="container col-md-12 col-xl-9">
-    <h1>Hacer filtro especificos para esta tabla</h1>
-    <h3>por fecha(mes),precio y categoria en tabla de my expenses</h3>
+    <div class="my-3">
+      <h1 style="color: #0859ce">{{ now }}</h1>
+    </div>
     <app-table [limit]="16"></app-table>
     <app-modal-new-expense></app-modal-new-expense>
     <app-modal-update-expense></app-modal-update-expense>

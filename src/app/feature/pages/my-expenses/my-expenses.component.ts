@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-expenses.component.css']
 })
 export class MyExpensesComponent implements OnInit {
+  public now: any = new Date().toDateString();
 
   constructor() { }
 
