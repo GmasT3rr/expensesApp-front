@@ -3,15 +3,7 @@
 
           <!--  -->
     <ng-container *ngIf="!isInSummary">
-      <div class="col-sm-8 col-xl-9 " >
-        <app-filter
-        [months]="months"
-        [currentMonth]="currentMonth[0]"
-        (selectedMonth)="selectMonth($event)"
-      ></app-filter>
-      </div>
-      <!--  -->
-      <div class="col-sm-4 col-xl-3 " >
+      <div class="col-md-4 col-xl-3 order-md-1" >
         <app-my-expenses-btns
         data-bs-toggle="modal"
         data-bs-target="#createExpense"
@@ -20,6 +12,15 @@
         [btnStylesRef]="'__create_new_expense'"
         ></app-my-expenses-btns>
       </div>
+      <div class="col-md-8 col-xl-9 __filter order-md-0" >
+        <app-filter
+        [months]="months"
+        [currentMonth]="currentMonth[0]"
+        (selectedMonth)="selectMonth($event)"
+      ></app-filter>
+      </div>
+      <!--  -->
+
       <!--  -->
 
     </ng-container>
@@ -27,7 +28,7 @@
   <div class="d-flex justify-content-around my-4">
     <div *ngIf="dataAvailable" class="table-responsive col-12 card __top_cards">
       <app-table-filters
-        [btnName]="'Order by'"
+        [btnName]="'Order'"
         [btnIcon]="'bi bi-filter-left'"
         [title]="filterDate"
         (emitFilters)="aplicarFiltro($event)"
