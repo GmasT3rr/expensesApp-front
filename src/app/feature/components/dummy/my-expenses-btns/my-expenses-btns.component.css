@@ -1,14 +1,21 @@
 .__create_new_expense{
   border-radius: 10px;
-  padding: 5px;
   background-color: #0859ce;
   color: white;
-  font-size: 1.2rem;
+  border: none;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  padding: .5rem;
   cursor: pointer;
 }
 
 .__create_new_expense:hover {
   background-color: #2748a0;
   color: #f9faf5;
+}
+.form-select {
+  border: none;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.5); */
+
+  padding: .5rem;
 }

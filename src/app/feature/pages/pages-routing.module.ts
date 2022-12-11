@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'users',component:UsersComponent},
 
 
-  {path:'**',redirectTo:'home',pathMatch:'full'}
+  {path:'**',redirectTo:'summary',pathMatch:'full'}
 
 
 ];

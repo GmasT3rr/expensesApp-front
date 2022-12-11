@@ -16,7 +16,8 @@ export class TableComponent implements OnInit {
   public totalPages = 0;
   public currentPage = 1;
   public offset = 0;
-  @Input() limit = 8;
+  @Input() maxTableItems:any
+  @Input() limit:any
   private userExpensesLength = 0;
   public selectedMonth: any = 'firstTime';
   public currentMonth: any = '';
@@ -28,6 +29,7 @@ export class TableComponent implements OnInit {
     private router: Router
   ) {
     this.months = Object.entries(Months);
+
   }
 
   ngOnInit(): void {
@@ -81,6 +83,8 @@ export class TableComponent implements OnInit {
       });
 
       this.userExpensesLength = filteredByMonth.length;
+      this.getPaginationNumber();
+
       switch (this.filterBy) {
         case 'None':
           this.userExpenses = filteredByMonth;
@@ -112,13 +116,12 @@ export class TableComponent implements OnInit {
         default:
           break;
       }
-      this.getPaginationNumber();
       this.dataAvailable = true;
     });
   }
 
   getPaginationNumber() {
-    let div = this.userExpensesLength / this.limit;
+    let div = this.userExpensesLength / this.maxTableItems;
     this.totalPages = Math.ceil(div);
   }
 
@@ -147,8 +150,9 @@ export class TableComponent implements OnInit {
 
   aplicarFiltro(filtro: string) {
     this.filterBy = filtro;
-    this.userExpenses = [];
     this.getUserExpenses();
+    this.getPaginationNumber();
+
   }
   selectMonth(month: any) {
     this.expensesService.expense.emit(month);

@@ -3,7 +3,8 @@
     <div class="my-3">
       <h1 style="color: #0859ce">{{ now }}</h1>
     </div>
-    <app-table [limit]="16"></app-table>
+    <app-table [maxTableItems]="16"
+    [limit]="16"></app-table>
     <app-modal-new-expense></app-modal-new-expense>
     <app-modal-update-expense></app-modal-update-expense>
     <app-modal-delete-expense></app-modal-delete-expense>
