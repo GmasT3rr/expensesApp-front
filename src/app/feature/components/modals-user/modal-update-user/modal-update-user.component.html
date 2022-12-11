@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="updateUser"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="updateUserLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="updateUserLabel">
+          Do you want to update this user?
+        </h4>
+
+      </div>
+      <div class="modal-body">
+        <!-- <app-modal-table [expense]="expense"></app-modal-table> -->
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="updateUserForm">
+        <div class="row d-flex justify-content-center">
+          <select formControlName="role" class="form-select">
+            <option value="" disabled selected>Select a new role</option>
+            <option [value]="role.name" *ngFor="let role of roles">
+              {{ role.name | titlecase}}
+            </option>
+          </select>
+        </div>
+      </form>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="__btn_cancel" data-bs-dismiss="modal" >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="__btn_delete"
+          data-bs-dismiss="modal"
+          (click)="updateUser()"
+        [disabled]="updateUserForm.invalid"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

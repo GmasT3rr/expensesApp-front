@@ -1,0 +1,35 @@
+<div class="row d-flex align-items-center justify-content-center">
+  <div class="d-flex row col-md-10">
+    <div class="col-md-4 my-1" >
+      <div class="__user_icon">
+        <div><i class="bi bi-people"></i> {{userInfo?.roles | titlecase}}</div>
+      </div>
+    </div>
+    <div class="col-md-8 my-1" >
+      <div class="__user_data">
+        <div> {{ userInfo?.email }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2 d-flex row align-items-center justify-content-center ">
+    <div class="col-md-12 my-1 ">
+      <div class="d-flex row align-items-center justify-content-around __actions">
+        <div class="col-6 d-flex  align-items-center justify-content-center ">
+          <i class="d-flex  align-items-center justify-content-center"
+            data-bs-toggle="modal"
+            data-bs-target="#updateUser"
+            class="btn bi bi-pen"
+          ></i>
+        </div>
+        <div class="col-6 d-flex  align-items-center justify-content-center">
+          <i class="d-flex  align-items-center justify-content-center"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteUser"
+            class="btn bi bi-trash3"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

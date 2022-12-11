@@ -1,0 +1,36 @@
+<ng-container *ngIf="dataAvailable">
+  <!-- <div
+  class="row d-flex justify-content-start text-center"
+>
+  <div class="__box col-12 col-lg-12">
+    <div class="col-12 card __top_cards">
+      <app-current-user-card [currentUser]="currentUser" ></app-current-user-card>
+    </div>
+  </div>
+</div> -->
+  <div
+    class="row d-flex justify-content-start text-center"
+    *ngFor="let user of allUsers | slice : offset : limit"
+  >
+    <div class="__box col-12">
+      <div class="col-12 card __top_cards">
+        <app-user-cards-info [userInfo]="user"></app-user-cards-info>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-around text-center my-4">
+    <div class="__box col-6 col-md-2">
+      <div class="col-12 card __btn_pagination">
+        <div (click)="paginationPrevious()">Prev</div>
+      </div>
+    </div>
+    <div class="__box col-6 col-md-2">
+      <div class="col-12 card __btn_pagination">
+        <div (click)="paginationNext()">Next</div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<app-modal-delete-user></app-modal-delete-user>
+<app-modal-update-user [roles]="allRoles"></app-modal-update-user>

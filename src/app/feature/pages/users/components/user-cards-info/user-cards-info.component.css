@@ -1,0 +1,24 @@
+.__user_data,
+.__user_icon,
+.__actions {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+.__user_icon {
+  background-color: #0859ce;
+  color: white;
+}
+.bi-pen {
+  color: #0859ce;
+}
+.bi-trash3 {
+  color: #ff0080;
+}
+
+@media screen and (max-width: 500px) {
+  .__user_data,
+  .__user_icon {
+    font-size: 1.2rem;
+  }
+}
